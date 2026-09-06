@@ -1,0 +1,112 @@
+---
+import Base from '../layouts/Base.astro';
+import catalog from '../../catalog/policy-catalog.json';
+
+const bySlug = new Map(catalog.manifestos.map((m: any) => [m.slug, m]));
+const grouped = catalog.manifestos.map((m: any) => ({
+  ...m,
+  policies: catalog.policies.filter((p: any) => p.manifestos.includes(m.slug)),
+}));
+const unmapped = catalog.policies.filter((p: any) => p.manifestos.length === 0);
+const levelClass = (l: string) => l.startsWith('MUST') ? 'lvl-must' : l.startsWith('SHOULD') ? 'lvl-should' : 'lvl-may';
+---
+
+<Base
+  title="Policy Catalog — The ORES Manifestos"
+  description="The manifestos as machine-readable policy: every normative rule in the workspace constitution, with a stable identifier, the manifesto it instantiates, and whether a tool could check it."
+>
+  <section class="hero">
+    <div class="inner">
+      <h1>The catalog.</h1>
+      <p class="lede">
+        The manifestos are the argument. This is the same material as data: every normative rule
+        in the workspace constitution, each with a stable identifier, the manifesto it belongs to,
+        and an honest answer to whether a tool could actually check it.
+      </p>
+      <div class="callout">
+        A rule you cannot cite by name gets restated slightly differently every time someone
+        invokes it, and then it is not one rule any more. Identifiers are the whole point.
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="inner">
+      <h2>At a glance</h2>
+      <div class="card-grid">
+        <div class="card"><span class="num">{catalog.counts.policies}</span><h3>policies</h3><p>extracted from {catalog.counts.sections} sections of the constitution</p></div>
+        <div class="card"><span class="num">{catalog.counts.enforceable}</span><h3>machine-checkable</h3><p>each one says what a checker would test; the rest need human judgement</p></div>
+        <div class="card"><span class="num">{catalog.counts.mapped}</span><h3>mapped to a manifesto</h3><p>the remaining {catalog.counts.policies - catalog.counts.mapped} are operational detail with no manifesto of their own yet</p></div>
+      </div>
+      <p class="section-note">
+        Machine-readable at <a href="/catalog/policy-catalog.json"><code>/catalog/policy-catalog.json</code></a>,
+        validated against <a href="/catalog/policy-catalog.schema.json"><code>policy-catalog.schema.json</code></a>.
+        Provenance is recorded as a SHA-256 of each source file, so a stale catalog is detectable
+        rather than merely suspected.
+      </p>
+    </div>
+  </section>
+
+  {grouped.map((m: any) => (
+    <section id={m.slug}>
+      <div class="inner">
+        <h2><span class="num">{String(m.number).padStart(2, '0')}</span> <a href={`/manifestos/${m.slug}`}>{m.title}</a></h2>
+        <p class="section-note">{m.policies.length} {m.policies.length === 1 ? 'rule' : 'rules'}</p>
+        <ul class="policy-list">
+          {m.policies.map((p: any) => (
+            <li id={p.id}>
+              <code class="pid">{p.id}</code>
+              <span class={`lvl ${levelClass(p.level)}`}>{p.level.replace('_', ' ')}</span>
+              <span class="stmt">{p.statement}</span>
+              {p.enforceable && <span class="check" title={p.verification}>checkable</span>}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  ))}
+
+  <section id="unmapped">
+    <div class="inner">
+      <h2>Not yet under a manifesto</h2>
+      <p class="section-note">
+        {unmapped.length} rules that are real and enforced but have no manifesto arguing for them.
+        That is a gap in the manifestos, not in the rules — the clearest clusters are
+        {' '}<em>never lose work</em>, <em>invisible state is the enemy</em>, and
+        {' '}<em>fix the root cause, not the symptom</em>.
+      </p>
+      <ul class="policy-list">
+        {unmapped.slice(0, 40).map((p: any) => (
+          <li id={p.id}>
+            <code class="pid">{p.id}</code>
+            <span class={`lvl ${levelClass(p.level)}`}>{p.level.replace('_', ' ')}</span>
+            <span class="stmt">{p.statement}</span>
+          </li>
+        ))}
+      </ul>
+      {unmapped.length > 40 && <p class="section-note">…and {unmapped.length - 40} more in the JSON.</p>}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .policy-list { list-style: none; padding: 0; margin: 0; }
+  .policy-list li {
+    display: grid;
+    grid-template-columns: minmax(11rem, auto) auto 1fr auto;
+    gap: 0.75rem;
+    align-items: baseline;
+    padding: 0.6rem 0;
+    border-top: 1px solid var(--rule, #e5e5e5);
+  }
+  .pid { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.8rem; word-break: break-all; }
+  .lvl { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.68rem; letter-spacing: 0.04em; white-space: nowrap; }
+  .lvl-must { color: #a3341f; }
+  .lvl-should { color: #8a6d1f; }
+  .lvl-may { color: var(--ink-soft, #666); }
+  .stmt { line-height: 1.5; }
+  .check { font-size: 0.68rem; letter-spacing: 0.04em; color: #2f6b3f; white-space: nowrap; }
+  @media (max-width: 720px) {
+    .policy-list li { grid-template-columns: 1fr; gap: 0.2rem; }
+  }
+</style>
