@@ -1,0 +1,11 @@
+.DS_Store
+.idea/
+.vscode/
+.ores/
+.env
+.env.*
+env/dec/
+node_modules/
+dist/
+.astro/
+*.log
