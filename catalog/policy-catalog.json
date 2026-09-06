@@ -1,0 +1,4961 @@
+{
+  "$schema": "./policy-catalog.schema.json",
+  "catalogVersion": "1.0.0",
+  "generatedOn": "2026-09-06",
+  "about": "The normative rules of the ORES workspace, extracted from the engineering constitution in github.com/oresoftware/my-ai and published in a form other repositories and CI jobs can read. The manifestos on this site are the prose; this catalog is the same material with stable identifiers, so a check can cite a rule by id instead of restating it.",
+  "sources": [
+    {
+      "repo": "github.com/oresoftware/my-ai",
+      "path": "AGENTS.md",
+      "sha256": "5d4d94e57fcafeb5a308654e806e2c10bcdff9c21cbcfbb15488000cd6448e0a",
+      "lines": 1128
+    },
+    {
+      "repo": "github.com/oresoftware/my-ai",
+      "path": "original-agents.md",
+      "sha256": "a2cb017184bddf33caa931134538e4c79efa17c0013f90ca04ea44eb6a005b69",
+      "lines": 142
+    }
+  ],
+  "counts": {
+    "manifestos": 10,
+    "sections": 24,
+    "themes": 12,
+    "policies": 307,
+    "enforceable": 130,
+    "mapped": 184,
+    "byLevel": {
+      "MUST": 195,
+      "MAY": 11,
+      "MUST_NOT": 88,
+      "SHOULD": 13
+    }
+  },
+  "manifestos": [
+    {
+      "number": 1,
+      "slug": "peer-authorities",
+      "title": "Peer Authorities",
+      "url": "https://ores-manifestos.github.io/manifestos/peer-authorities/"
+    },
+    {
+      "number": 2,
+      "slug": "fail-closed",
+      "title": "Fail Closed",
+      "url": "https://ores-manifestos.github.io/manifestos/fail-closed/"
+    },
+    {
+      "number": 3,
+      "slug": "evidence-over-assertion",
+      "title": "Evidence Over Assertion",
+      "url": "https://ores-manifestos.github.io/manifestos/evidence-over-assertion/"
+    },
+    {
+      "number": 4,
+      "slug": "one-contract-one-parser",
+      "title": "One Contract, One Parser",
+      "url": "https://ores-manifestos.github.io/manifestos/one-contract-one-parser/"
+    },
+    {
+      "number": 5,
+      "slug": "work-does-not-sit-locally",
+      "title": "Work Does Not Sit Locally",
+      "url": "https://ores-manifestos.github.io/manifestos/work-does-not-sit-locally/"
+    },
+    {
+      "number": 6,
+      "slug": "merge-do-not-pick-sides",
+      "title": "Merge, Don't Pick Sides",
+      "url": "https://ores-manifestos.github.io/manifestos/merge-do-not-pick-sides/"
+    },
+    {
+      "number": 7,
+      "slug": "the-secondary-copy",
+      "title": "The Secondary Copy",
+      "url": "https://ores-manifestos.github.io/manifestos/the-secondary-copy/"
+    },
+    {
+      "number": 8,
+      "slug": "one-to-one-all-the-way-down",
+      "title": "One-to-One All the Way Down",
+      "url": "https://ores-manifestos.github.io/manifestos/one-to-one-all-the-way-down/"
+    },
+    {
+      "number": 9,
+      "slug": "test-orgs-are-real-users",
+      "title": "Test Orgs Are Real Users",
+      "url": "https://ores-manifestos.github.io/manifestos/test-orgs-are-real-users/"
+    },
+    {
+      "number": 10,
+      "slug": "secrets-have-one-home",
+      "title": "Secrets Have One Home",
+      "url": "https://ores-manifestos.github.io/manifestos/secrets-have-one-home/"
+    }
+  ],
+  "sections": [
+    {
+      "id": "S0",
+      "number": "0",
+      "title": "Preamble: `# Critical agent instructions:",
+      "source_lines": "1-32"
+    },
+    {
+      "id": "S1",
+      "number": "1",
+      "title": "## Agent guidelines for local folder ~/codes` + `### Finding this file from inside a repository",
+      "source_lines": "33-69"
+    },
+    {
+      "id": "S2",
+      "number": "2",
+      "title": "## Env vars and api tokens",
+      "source_lines": "71-98"
+    },
+    {
+      "id": "S3",
+      "number": "3",
+      "title": "## CLI flags and environment variables",
+      "source_lines": "100-130"
+    },
+    {
+      "id": "S4",
+      "number": "4",
+      "title": "## Overall best practices",
+      "source_lines": "133-137"
+    },
+    {
+      "id": "S5",
+      "number": "5",
+      "title": "## Schema, protobuf, typespec, json-schema diesel and ORM's",
+      "source_lines": "139-153"
+    },
+    {
+      "id": "S6",
+      "number": "6",
+      "title": "## External platform usage: Cloudflare and GitHub Pages",
+      "source_lines": "156-188"
+    },
+    {
+      "id": "S7",
+      "number": "7",
+      "title": "## Credentials and durable backups for code",
+      "source_lines": "190-254"
+    },
+    {
+      "id": "S8",
+      "number": "8",
+      "title": "## critical 'git merge' and 'git rebase' instructions:",
+      "source_lines": "256-272"
+    },
+    {
+      "id": "S9",
+      "number": "9",
+      "title": "## critical git push and github instructions",
+      "source_lines": "274-282"
+    },
+    {
+      "id": "S10",
+      "number": "10",
+      "title": "## critical: land work without waiting to be asked",
+      "source_lines": "284-311"
+    },
+    {
+      "id": "S11",
+      "number": "11",
+      "title": "## Critical 'git submodule' instructions: how we do app-of-apps",
+      "source_lines": "313-454"
+    },
+    {
+      "id": "S12",
+      "number": "12",
+      "title": "## Critical - we almost always use this pattern:` and zed-pkg conventions",
+      "source_lines": "456-487"
+    },
+    {
+      "id": "S13–14",
+      "number": "13–14",
+      "title": "Sibling test orgs and repo naming conventions",
+      "source_lines": "489-567"
+    },
+    {
+      "id": "S15",
+      "number": "15",
+      "title": "## Backend infra",
+      "source_lines": "569-573"
+    },
+    {
+      "id": "S16",
+      "number": "16",
+      "title": "## Code style and coding patterns",
+      "source_lines": "575-590"
+    },
+    {
+      "id": "S17",
+      "number": "17",
+      "title": "## Agents reaching GitHub (Cursor, Claude Code, Codex)",
+      "source_lines": "592-826"
+    },
+    {
+      "id": "S18",
+      "number": "18",
+      "title": "## Agents reaching Linear",
+      "source_lines": "828-857"
+    },
+    {
+      "id": "S19",
+      "number": "19",
+      "title": "## Plan first, code second",
+      "source_lines": "859-866"
+    },
+    {
+      "id": "S20",
+      "number": "20",
+      "title": "## Red PRs, stale PRs, and mandatory cherry-pick",
+      "source_lines": "868-988"
+    },
+    {
+      "id": "S21",
+      "number": "21",
+      "title": "## Rust-first systems programming and scripting",
+      "source_lines": "990-1014"
+    },
+    {
+      "id": "S22",
+      "number": "22",
+      "title": "## Critical: never discard uncommitted working-tree changes — in any repo",
+      "source_lines": "1016-1060"
+    },
+    {
+      "id": "S23",
+      "number": "23",
+      "title": "## Critical: git worktrees live in <repo>/tmp/worktrees/",
+      "source_lines": "1062-1127"
+    },
+    {
+      "id": "S24",
+      "number": "24",
+      "title": "Appendix: rules stated only in `original-agents.md",
+      "source_lines": null
+    }
+  ],
+  "themes": [
+    {
+      "id": "never-lose-work",
+      "statement": "Work is defined by its existence, not by its state of completion, its author, or its container. Uncommitted edits, another session's edits, a stash, a cold branch, a hunk in a five-month-old PR, and a worktree nobody claims are all work, and destroying any of them is a defect on the same footing as deleting a pushed branch — reportable, recoverable-before-anything-else, and never a legitimate step of \"cleanup\", \"sync\", or \"make CI green\". The document repeatedly converts a *prevention* rule into a *preservation* rule: you do not merely avoid the destructive command, you first move the endangered work somewhere durable (`wip/`, `rescue/`, a salvage PR) and push it. Every escape hatch git offers — `--force`, `-f`, `--hard`, `drop`, `clear`, `prune`, a filesystem `rm` — is closed unless a human names the exact command and path.\n*Instantiated by:* `uncommitted-changes-are-work`, `look-before-you-touch`, `preserve-then-sync`, `never-force-a-tree-rewrite`, `discard-is-never-implied-by-sync`, `a-refused-dirty-pull-is-the-correct-outcome`, `fleet-scripts-skip-and-report-dirty-checkouts`, `other-sessions-work-counts-too`, `recover-immediately-if-work-was-lost`, `never-force-submodule-update`, `never-discard-a-branch-without-salvage`, `rescue-a-foreign-stash-never-pop-it`, `pre-removal-inspection`, `retain-the-source-branch`, `never-filesystem-delete-a-worktree`, `never-blanket-prune-worktrees`, `keep-the-head-branch-until-salvage-merges`, `preserve-before-switching-tasks`, `pause-overlapping-edits-without-safe-ownership`, `no-reset-without-permission`, `no-destructive-ops-without-permission`.",
+      "manifesto": null,
+      "policies": [
+        "uncommitted-changes-are-work",
+        "look-before-you-touch",
+        "preserve-then-sync",
+        "never-force-a-tree-rewrite",
+        "discard-is-never-implied-by-sync",
+        "a-refused-dirty-pull-is-the-correct-outcome",
+        "fleet-scripts-skip-and-report-dirty-checkouts",
+        "other-sessions-work-counts-too",
+        "recover-immediately-if-work-was-lost",
+        "never-force-submodule-update",
+        "never-discard-a-branch-without-salvage",
+        "rescue-a-foreign-stash-never-pop-it",
+        "pre-removal-inspection",
+        "retain-the-source-branch",
+        "never-filesystem-delete-a-worktree",
+        "never-blanket-prune-worktrees",
+        "keep-the-head-branch-until-salvage-merges",
+        "preserve-before-switching-tasks",
+        "pause-overlapping-edits-without-safe-ownership",
+        "no-reset-without-permission",
+        "no-destructive-ops-without-permission"
+      ]
+    },
+    {
+      "id": "remote-or-it-did-not-happen",
+      "statement": "Local disk is not storage. A change is only real once it is on GitHub, and the document defines \"done\" progressively upward: committed is not done, pushed is not done, a PR exists is done-enough-for-now, merged is done for Linear purposes. Synchronization is symmetric — a clean tree proves nothing, and you are finished only when local and remote hold the same commits. The corollary is that unavailability of GitHub is never a licence to stop: there are six ranked paths to GitHub, three to Linear, and a last-resort R2/Drive/Linear artifact route, and an R2 object still is not a delivery.\n*Instantiated by:* `sync-is-two-way`, `ready-work-never-stays-local`, `always-push-after-committing`, `git-is-the-primary-durable-backup`, `r2-object-is-not-a-delivery`, `backup-elsewhere-if-github-unreachable`, `landing-must-happen-even-if-mcp-is-down`, `github-failover-order`, `linear-path-order`, `never-stop-after-one-failed-method`, `never-unable-to-reach-linear`, `done-means-a-github-salvage-pr-exists`, `salvaged-work-must-leave-the-laptop`, `unready-salvage-is-a-draft-pr-not-a-stash`, `worktree-work-lands-through-a-pr`, `commit-into-a-clean-tree-before-pulling`, `fetch-all-prune-is-always-safe`.",
+      "manifesto": "work-does-not-sit-locally",
+      "policies": [
+        "sync-is-two-way",
+        "ready-work-never-stays-local",
+        "always-push-after-committing",
+        "git-is-the-primary-durable-backup",
+        "r2-object-is-not-a-delivery",
+        "backup-elsewhere-if-github-unreachable",
+        "landing-must-happen-even-if-mcp-is-down",
+        "github-failover-order",
+        "linear-path-order",
+        "never-stop-after-one-failed-method",
+        "never-unable-to-reach-linear",
+        "done-means-a-github-salvage-pr-exists",
+        "salvaged-work-must-leave-the-laptop",
+        "unready-salvage-is-a-draft-pr-not-a-stash",
+        "worktree-work-lands-through-a-pr",
+        "commit-into-a-clean-tree-before-pulling",
+        "fetch-all-prune-is-always-safe"
+      ]
+    },
+    {
+      "id": "land-without-asking",
+      "statement": "Asking for permission to land finished work is itself a defect, not caution. The default is autonomous: commit, merge upstream, push, open a PR (draft if incomplete), report the URL, repeat — and a human's single \"yes, commit and open PRs\" becomes the standing rule rather than a one-off grant. The asymmetry is explicit: a human can close, convert or reject a draft, but cannot review what never left the machine. The autonomy is deliberately bounded — it never extends to force-push, rebase, stash, reset, committing to `main`, closing PRs or Linear issues, or touching billing.\n*Instantiated by:* `never-ask-whether-to-commit-or-pr`, `default-landing-sequence`, `draft-pr-when-incomplete`, `pr-url-in-turn-summary`, `standing-rule-after-a-yes`, `do-not-wait-for-a-commit-instruction`, `open-prs-even-draft-and-merge-ready-ones`, `take-ten-next-steps-when-idle`, `do-not-wait-to-open-the-salvage-pr`, `landing-default-authorizes-nothing-destructive`, `feature-branch-off-latest-remote-default`, `protected-branch-means-open-a-pr`.",
+      "manifesto": "work-does-not-sit-locally",
+      "policies": [
+        "never-ask-whether-to-commit-or-pr",
+        "default-landing-sequence",
+        "draft-pr-when-incomplete",
+        "pr-url-in-turn-summary",
+        "standing-rule-after-a-yes",
+        "do-not-wait-for-a-commit-instruction",
+        "open-prs-even-draft-and-merge-ready-ones",
+        "take-ten-next-steps-when-idle",
+        "do-not-wait-to-open-the-salvage-pr",
+        "landing-default-authorizes-nothing-destructive",
+        "feature-branch-off-latest-remote-default",
+        "protected-branch-means-open-a-pr"
+      ]
+    },
+    {
+      "id": "merge-by-meaning-not-by-side",
+      "statement": "A conflict is a question about intent, and picking a side is refusing to answer it. Resolution requires deep context — at least 15 commits of history in the general rule, at least 5 in the PR and salvage rules, plus analogous repos of the same name in sibling orgs — and produces merged *code*, not a chosen hunk. The rule generalises beyond text conflicts: a gitlink conflict is two SHAs and is resolved by merging upstream and pinning the result, never by choosing a SHA, \"because the pin is a claim about which code we deploy.\" History-rewriting escapes (rebase, stash, reset) are forbidden precisely because they let you avoid answering the question.\n*Instantiated by:* `semantic-conflict-resolution`, `use-analogous-repos-as-conflict-context`, `avoid-rebase`, `never-rebase-to-sync`, `avoid-stash`, `no-reset-without-permission`, `gitlink-conflicts-resolve-in-the-source-repo`, `fix-real-failures-by-merging-main-in`, `merge-main-in-for-dirty-conflicts`, `salvage-conflicts-need-five-commits-both-sides`, `no-rebase-stash-or-reset-in-salvage`, `never-rebase-to-ease-a-cherry-pick`, `read-original-agents-before-nontrivial-git`.",
+      "manifesto": "merge-do-not-pick-sides",
+      "policies": [
+        "semantic-conflict-resolution",
+        "use-analogous-repos-as-conflict-context",
+        "avoid-rebase",
+        "never-rebase-to-sync",
+        "avoid-stash",
+        "no-reset-without-permission",
+        "gitlink-conflicts-resolve-in-the-source-repo",
+        "fix-real-failures-by-merging-main-in",
+        "merge-main-in-for-dirty-conflicts",
+        "salvage-conflicts-need-five-commits-both-sides",
+        "no-rebase-stash-or-reset-in-salvage",
+        "never-rebase-to-ease-a-cherry-pick",
+        "read-original-agents-before-nontrivial-git"
+      ]
+    },
+    {
+      "id": "salvage-before-closure",
+      "statement": "No pull request is ever merely closed. The document inverts the usual triage instinct: the stale, red, conflict-ridden, half-finished PR is the *highest*-value salvage target, because it is where an idea was tried once and then lost when the surrounding code moved. Undesirability-as-a-whole is orthogonal to containing something worth keeping, and the latter is asserted as the common case. So the job is never \"decide whether this is worth saving\" but \"extract, land on `salvage/pr-<N>-<slug>`, open a real PR, record it on the original in the required template.\" Even the absence of value is a claim that must be defended hunk by hunk, and even a dead end must be preserved — as negative knowledge in an ADR.\n*Instantiated by:* `a-pr-is-never-merely-closed`, `closing-a-pr-requires-the-salvage-pass`, `never-discard-a-branch-without-salvage`, `stale-prs-are-the-highest-value-salvage`, `assume-there-is-something-worth-keeping`, `cherry-pick-is-mandatory`, `harvest-the-minimum-categories`, `record-negative-knowledge`, `land-orphan-tests-as-skipped`, `salvage-branch-naming-and-base`, `cherry-pick-dash-x-or-cite-the-source`, `use-the-salvage-record-template`, `nothing-salvageable-must-be-defended`, `green-the-salvage-pr-before-touching-the-original`, `done-means-a-github-salvage-pr-exists`, `never-close-unless-a-human-asked`, `no-bare-stale-closure-message`, `no-batch-closing-prs`, `never-drop-unique-tests-or-hardening`, `age-and-redness-are-not-worthlessness`, `do-not-merge-is-not-throw-away`, `per-repo-skim-for-duplicate-fleet-titles`, `keep-the-linear-issue-open-until-salvage-merges`.",
+      "manifesto": "merge-do-not-pick-sides",
+      "policies": [
+        "a-pr-is-never-merely-closed",
+        "closing-a-pr-requires-the-salvage-pass",
+        "never-discard-a-branch-without-salvage",
+        "stale-prs-are-the-highest-value-salvage",
+        "assume-there-is-something-worth-keeping",
+        "cherry-pick-is-mandatory",
+        "harvest-the-minimum-categories",
+        "record-negative-knowledge",
+        "land-orphan-tests-as-skipped",
+        "salvage-branch-naming-and-base",
+        "cherry-pick-dash-x-or-cite-the-source",
+        "use-the-salvage-record-template",
+        "nothing-salvageable-must-be-defended",
+        "green-the-salvage-pr-before-touching-the-original",
+        "done-means-a-github-salvage-pr-exists",
+        "never-close-unless-a-human-asked",
+        "no-bare-stale-closure-message",
+        "no-batch-closing-prs",
+        "never-drop-unique-tests-or-hardening",
+        "age-and-redness-are-not-worthlessness",
+        "do-not-merge-is-not-throw-away",
+        "per-repo-skim-for-duplicate-fleet-titles",
+        "keep-the-linear-issue-open-until-salvage-merges"
+      ]
+    },
+    {
+      "id": "invisible-state-is-the-enemy",
+      "statement": "The recurring hazard in this workspace is state that exists but reports as absent. A stash lives in no remote and shows in no `git status` or ahead/behind count, so 6,000 lines of work read as a clean, fully-reconciled repo to you, to every other session, and to every tool that scans for unlanded work. Submodules are empty after clone, so builds fail and greps silently find nothing. Pointer drift renders as ` M apps/<app>` and looks like a dirty tree. A worktree placed under `~/codes/` looks like a repo to every fleet script. The prescribed response is always the same: use a container that is *visible and pushable* (a branch, a PR, `tmp/worktrees/`), and use the probe that shows the true state (`git submodule status`, `--ignore-submodules=all`, `git stash list`, `git worktree list --porcelain`).\n*Instantiated by:* `use-wip-branch-not-stash`, `a-stash-is-not-preservation`, `never-use-a-stash-as-storage`, `stash-is-permitted-only-short-lived-same-session`, `never-trust-a-stash-message`, `init-submodules-after-any-clone`, `read-submodule-status-before-concluding`, `pointer-drift-is-not-a-dirty-tree`, `detect-real-edits-with-ignore-submodules`, `worktrees-live-in-tmp-worktrees`, `never-place-a-worktree-outside-the-repo`, `every-repo-ignores-tmp-and-temp`, `tmp-is-the-only-sanctioned-scratch-location`, `look-before-you-touch`, `inspect-worktree-list-before-cleanup`.",
+      "manifesto": null,
+      "policies": [
+        "use-wip-branch-not-stash",
+        "a-stash-is-not-preservation",
+        "never-use-a-stash-as-storage",
+        "stash-is-permitted-only-short-lived-same-session",
+        "never-trust-a-stash-message",
+        "init-submodules-after-any-clone",
+        "read-submodule-status-before-concluding",
+        "pointer-drift-is-not-a-dirty-tree",
+        "detect-real-edits-with-ignore-submodules",
+        "worktrees-live-in-tmp-worktrees",
+        "never-place-a-worktree-outside-the-repo",
+        "every-repo-ignores-tmp-and-temp",
+        "tmp-is-the-only-sanctioned-scratch-location",
+        "look-before-you-touch",
+        "inspect-worktree-list-before-cleanup"
+      ]
+    },
+    {
+      "id": "verify-the-thing-not-a-proxy-for-it",
+      "statement": "Green is not proof. `namespaceStatus: ready` means a process started, not that it has a token; `gh auth status` says nothing about MCP; a working SSH push says nothing about `gh api`; a matching PR title says nothing about whether a squash merge actually contains your tree; a stash message claiming supersession is often false; a PR's title says nothing about why its job failed. The document's uniform instruction is to test the exact path you are about to use, read the primary artifact (the job log, the whole diff, the discussion, the actual tree), and only then conclude.\n*Instantiated by:* `probe-the-exact-path-you-will-use`, `verify-mcp-with-a-tool-call`, `expect-oresoftware-from-gh-api-user`, `test-the-path-without-printing-credentials`, `report-which-linear-path-failed`, `diagnose-from-the-job-log`, `read-the-whole-diff`, `read-the-discussion`, `classify-each-hunk-against-today`, `verify-bug-fixes-against-current-head`, `prove-ancestry-before-removal`, `never-trust-a-stash-message`, `read-submodule-status-before-concluding`, `never-close-a-red-pr-unread`, `verify-the-zed-release-checksum`.",
+      "manifesto": "evidence-over-assertion",
+      "policies": [
+        "probe-the-exact-path-you-will-use",
+        "verify-mcp-with-a-tool-call",
+        "expect-oresoftware-from-gh-api-user",
+        "test-the-path-without-printing-credentials",
+        "report-which-linear-path-failed",
+        "diagnose-from-the-job-log",
+        "read-the-whole-diff",
+        "read-the-discussion",
+        "classify-each-hunk-against-today",
+        "verify-bug-fixes-against-current-head",
+        "prove-ancestry-before-removal",
+        "never-trust-a-stash-message",
+        "read-submodule-status-before-concluding",
+        "never-close-a-red-pr-unread",
+        "verify-the-zed-release-checksum"
+      ]
+    },
+    {
+      "id": "one-authority-per-fact",
+      "statement": "Every fact has exactly one owner, and a second copy is treated as a future inconsistency rather than as redundancy. The flag contract lives in `.cli-flags.toml` and nowhere else; a submodule's truth is its upstream repo and never the vendored copy; an app has one pin owner; `monorepo.config.json` is the manifest; `env/enc/*.env.enc` is the version-controlled secret source with GH Actions as backup only; `*-lib-core` owns migrations for both servers; Linear owns scope and GitHub owns code state, with disagreement surfaced rather than silently resolved; and `AGENTS.md` itself must be linked or fetched, never copied, because \"a copy silently goes stale.\"\n*Instantiated by:* `cli-flags-toml-is-the-contract`, `no-second-option-schema`, `flags-2-env-owns-dotenv-precedence`, `submodule-checkout-is-a-secondary-copy`, `develop-upstream-then-bump-the-pin`, `never-edit-inside-a-submodule-path`, `no-double-pinning-an-app`, `monorepo-config-is-the-submodule-manifest`, `track-only-encrypted-env-files`, `central-secrets-from-fiducia-keystore`, `lib-core-owns-orm-and-migrations`, `linear-is-authoritative-for-scope`, `github-is-authoritative-for-code-state`, `surface-disagreement-never-silently-pick`, `never-copy-agents-md-into-a-repo`, `never-salvage-agents-md-itself`, `repos-commit-pointer-block-and-ignore`, `one-launcher-one-token-source`.",
+      "manifesto": "peer-authorities",
+      "policies": [
+        "cli-flags-toml-is-the-contract",
+        "no-second-option-schema",
+        "flags-2-env-owns-dotenv-precedence",
+        "submodule-checkout-is-a-secondary-copy",
+        "develop-upstream-then-bump-the-pin",
+        "never-edit-inside-a-submodule-path",
+        "no-double-pinning-an-app",
+        "monorepo-config-is-the-submodule-manifest",
+        "track-only-encrypted-env-files",
+        "central-secrets-from-fiducia-keystore",
+        "lib-core-owns-orm-and-migrations",
+        "linear-is-authoritative-for-scope",
+        "github-is-authoritative-for-code-state",
+        "surface-disagreement-never-silently-pick",
+        "never-copy-agents-md-into-a-repo",
+        "never-salvage-agents-md-itself",
+        "repos-commit-pointer-block-and-ignore",
+        "one-launcher-one-token-source"
+      ]
+    },
+    {
+      "id": "credentials-never-touch-the-repo-or-the-transcript",
+      "statement": "Secrets are resolved at runtime from a keyring, an approved secret channel, or a SOPS-encrypted file, and they are injected through an environment boundary — never argv, never `.git/config`, never MCP JSON, never a commit message, never chat, never R2 object metadata. Discovery of a credential in any of those places is not a lucky find but an *exposure event*: it is reported and rotated by its owner, and is explicitly disqualified as an authentication fallback. Rotation and revocation themselves require named human authorization, so the agent can neither use nor destroy what it stumbles on.\n*Instantiated by:* `never-read-credentials-from-files-or-chat`, `credential-resolution-order`, `credential-use-order`, `token-through-env-boundary-not-argv`, `never-echo-the-credential-store`, `burned-keys-are-unusable`, `found-token-is-exposure-not-fallback`, `exposed-credential-is-reported-not-reused`, `no-revoke-or-rotate-without-authorization`, `never-place-a-secret-anywhere`, `no-live-credentials-in-repo-or-agents-md`, `no-credential-values-in-this-policy`, `never-commit-secrets`, `no-credentials-as-cli-flags`, `never-persist-a-pat-in-git-config-or-remote`, `no-pats-in-configs-instructions-logs-or-messages`, `no-linear-token-in-committed-mcp-json`, `no-from-env-in-mcp-config`, `mcp-launcher-injects-the-real-token`, `launcher-unsets-placeholder-vars`, `never-print-the-token`, `never-upload-forbidden-artifacts`, `do-not-salvage-secret-or-ui-automation-hunks`.",
+      "manifesto": "secrets-have-one-home",
+      "policies": [
+        "never-read-credentials-from-files-or-chat",
+        "credential-resolution-order",
+        "credential-use-order",
+        "token-through-env-boundary-not-argv",
+        "never-echo-the-credential-store",
+        "burned-keys-are-unusable",
+        "found-token-is-exposure-not-fallback",
+        "exposed-credential-is-reported-not-reused",
+        "no-revoke-or-rotate-without-authorization",
+        "never-place-a-secret-anywhere",
+        "no-live-credentials-in-repo-or-agents-md",
+        "no-credential-values-in-this-policy",
+        "never-commit-secrets",
+        "no-credentials-as-cli-flags",
+        "never-persist-a-pat-in-git-config-or-remote",
+        "no-pats-in-configs-instructions-logs-or-messages",
+        "no-linear-token-in-committed-mcp-json",
+        "no-from-env-in-mcp-config",
+        "mcp-launcher-injects-the-real-token",
+        "launcher-unsets-placeholder-vars",
+        "never-print-the-token",
+        "never-upload-forbidden-artifacts",
+        "do-not-salvage-secret-or-ui-automation-hunks"
+      ]
+    },
+    {
+      "id": "one-to-one-topology-and-canonical-shape",
+      "statement": "The workspace is deliberately isomorphic: one GitHub org corresponds to exactly one Linear project, GitHub project, Slack channel, Neon org, Supabase org, Cloudflare domain and GCP project; each org has a sibling `*-test` org, a canonical repo-name set, a canonical six-subdomain DNS contract, and an Astro site at `*.github.io`. The payoff is stated explicitly and mechanically — analogous repos across orgs, \"usually matching by repo name,\" are the context you use to resolve a conflict, and a `DEN-<n>` in the branch and PR title is what makes the 1:1 actually attach.\n*Instantiated by:* `one-to-one-org-mapping`, `one-to-one-seven-plane-mapping`, `per-org-supabase-schema-namespace`, `den-id-in-branch-and-pr-title`, `org-paired-with-owned-apex-domain`, `canonical-subdomain-contract`, `astro-marketing-site-per-org`, `org-site-repo-naming`, `record-topology-in-linear-project`, `sibling-test-org-per-org`, `canonical-repo-name-set`, `asterisk-is-the-org-prefix`, `superproject-submodule-layouts`, `use-analogous-repos-as-conflict-context`, `preserve-the-declative-migrations-test-name`.",
+      "manifesto": "one-to-one-all-the-way-down",
+      "policies": [
+        "one-to-one-org-mapping",
+        "one-to-one-seven-plane-mapping",
+        "per-org-supabase-schema-namespace",
+        "den-id-in-branch-and-pr-title",
+        "org-paired-with-owned-apex-domain",
+        "canonical-subdomain-contract",
+        "astro-marketing-site-per-org",
+        "org-site-repo-naming",
+        "record-topology-in-linear-project",
+        "sibling-test-org-per-org",
+        "canonical-repo-name-set",
+        "asterisk-is-the-org-prefix",
+        "superproject-submodule-layouts",
+        "use-analogous-repos-as-conflict-context",
+        "preserve-the-declative-migrations-test-name"
+      ]
+    },
+    {
+      "id": "fail-closed-and-typed",
+      "statement": "Ambiguity is resolved by refusing to run. An unknown flag or an invalid typed value is a startup failure, not a warning; a parser or config failure is a startup failure; a Rust replacement must reject malformed input fail-closed and eliminate false-positive validation paths; contracts are enforced by JSON Schema at every boundary; the language preference (Rust on the backend, exhaustive matching, typed errors, illegal states excluded by types, no silent env fallback) is a preference for making the invalid unrepresentable rather than caught later. The same instinct governs guards: when `submodule-push-guard.sh` blocks you, \"the guard is right.\"\n*Instantiated by:* `full-flags-2-env-integration`, `no-silent-env-parsing-fallback`, `toml-only-is-not-integration`, `no-second-option-schema`, `json-schema-enforces-contracts`, `typespec-and-json-schema-are-peers`, `rust-by-default-for-systems-and-automation`, `rust-replacement-parity-requirements`, `capture-the-python-contract-before-replacing`, `favor-exhaustive-matching-and-formal-methods`, `follow-functional-principles`, `never-skip-the-submodule-push-guard`, `zpkg-scripts-accepts-only-test`, `no-force-push-no-skipped-hooks`.",
+      "manifesto": "fail-closed",
+      "policies": [
+        "full-flags-2-env-integration",
+        "no-silent-env-parsing-fallback",
+        "toml-only-is-not-integration",
+        "no-second-option-schema",
+        "json-schema-enforces-contracts",
+        "typespec-and-json-schema-are-peers",
+        "rust-by-default-for-systems-and-automation",
+        "rust-replacement-parity-requirements",
+        "capture-the-python-contract-before-replacing",
+        "favor-exhaustive-matching-and-formal-methods",
+        "follow-functional-principles",
+        "never-skip-the-submodule-push-guard",
+        "zpkg-scripts-accepts-only-test",
+        "no-force-push-no-skipped-hooks"
+      ]
+    },
+    {
+      "id": "fix-the-root-cause-not-the-symptom",
+      "statement": "At fleet scale, a hundred failures are usually a handful of causes \"wearing hundreds of faces\" — one shared workflow, one unpinned action, one missing secret, one billing setting. So classification precedes campaign: count the failure classes before declaring one, fix the cause once, and do not hand-patch 200 PRs. The same reflex appears elsewhere: a budget-blocked check is a billing setting and not a code defect, so code changes are forbidden; a missing in-repo symlink is a rollout gap to be fixed by re-running the link script, not a licence to skip the rules; a `+` gitlink is a pointer, not an edit. Crucially, root-cause thinking never licenses batching the *human* parts — each PR still gets its own read and its own comment.\n*Instantiated by:* `classify-the-fleet-before-a-campaign`, `budget-blocked-is-not-a-code-defect`, `budget-blocked-comment-and-escalate`, `missing-link-is-a-setup-gap`, `missing-pointer-block-is-a-rollout-gap`, `pointer-drift-is-not-a-dirty-tree`, `push-the-submodule-before-the-superproject`, `per-repo-skim-for-duplicate-fleet-titles`, `no-batch-closing-prs`, `diagnose-from-the-job-log`.\n\n---",
+      "manifesto": null,
+      "policies": [
+        "classify-the-fleet-before-a-campaign",
+        "budget-blocked-is-not-a-code-defect",
+        "budget-blocked-comment-and-escalate",
+        "missing-link-is-a-setup-gap",
+        "missing-pointer-block-is-a-rollout-gap",
+        "pointer-drift-is-not-a-dirty-tree",
+        "push-the-submodule-before-the-superproject",
+        "per-repo-skim-for-duplicate-fleet-titles",
+        "no-batch-closing-prs",
+        "diagnose-from-the-job-log"
+      ]
+    }
+  ],
+  "policies": [
+    {
+      "id": "oresoftware-is-primary-identity",
+      "level": "MUST",
+      "section": "S0",
+      "statement": "Treat `github.com/oresoftware` (GitHub login **ORESoftware**) as the owner/primary user of all our GitHub orgs; `the1mills` is the secondary user.",
+      "rationale": "github.com/oresoftware is the primary org owner, not the only org — fiducia-cloud, opto-sync, ecma-d, and the rest are separate GitHub organizations that ORESoftware owns or administers.",
+      "source_lines": "L3, L24–28, L606–607",
+      "enforceable": true,
+      "verification": "`gh api user --jq .login` returns `ORESoftware`",
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "one-to-one-org-mapping",
+      "level": "MUST",
+      "section": "S0",
+      "statement": "Maintain a 1:1:1:1 correspondence of GitHub org : Linear app project : GitHub org project (usually `projects/1`) : Slack channel.",
+      "rationale": null,
+      "source_lines": "L5–6",
+      "enforceable": true,
+      "verification": "for each org, assert exactly one Linear project, one GH project, one Slack channel is registered",
+      "themes": [
+        "one-to-one-topology-and-canonical-shape"
+      ],
+      "manifestos": [
+        "one-to-one-all-the-way-down"
+      ]
+    },
+    {
+      "id": "one-to-one-seven-plane-mapping",
+      "level": "MUST",
+      "section": "S0",
+      "statement": "Extend the same 1:1 rule across the data/edge/cloud planes as 1:1:1:1:1:1:1 — GitHub org : neondb org : supabase org : cloudflare domain : gcp project : linear app project : slack channel.",
+      "rationale": null,
+      "source_lines": "L8–10",
+      "enforceable": true,
+      "verification": "inventory join across the seven providers, one row per org",
+      "themes": [
+        "one-to-one-topology-and-canonical-shape"
+      ],
+      "manifestos": [
+        "one-to-one-all-the-way-down"
+      ]
+    },
+    {
+      "id": "scaffold-all-supabase-orgs",
+      "level": "MUST",
+      "section": "S0",
+      "statement": "Scaffold out **all** the per-org Supabase orgs even though they are not yet used.",
+      "rationale": "Supabase projects cost about $25/project/month (recorded 2026-09-04, DEN-3146).",
+      "source_lines": "L12–14",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "shared-supabase-org-interim",
+      "level": "MUST",
+      "section": "S0",
+      "statement": "For now, every GitHub org shares the `oresoftware` Supabase org, which holds only a canonical db and an auth db.",
+      "rationale": "cost; long-term we migrate to the per-org Supabase model.",
+      "source_lines": "L12–15",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "per-org-supabase-schema-namespace",
+      "level": "MUST",
+      "section": "S0",
+      "statement": "Give each GitHub org its own namespace (schema) inside the canonical and auth dbs.",
+      "rationale": "so the federated auth system (shared-auth) keeps tenants separated.",
+      "source_lines": "L15–16",
+      "enforceable": true,
+      "verification": "assert a schema exists per org in both dbs",
+      "themes": [
+        "one-to-one-topology-and-canonical-shape"
+      ],
+      "manifestos": [
+        "one-to-one-all-the-way-down"
+      ]
+    },
+    {
+      "id": "supabase-only-via-runtime-config",
+      "level": "MUST",
+      "section": "S0",
+      "statement": "Code must reach Supabase only through the org's runtime config (`*-lib-core` RuntimeConfig / `.cli-flags.toml`).",
+      "rationale": "so that migration is a config change, never a code change.",
+      "source_lines": "L16–18",
+      "enforceable": true,
+      "verification": "grep for Supabase URLs/clients constructed outside the RuntimeConfig boundary",
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "gh-auth-switch-before-mutating",
+      "level": "MUST",
+      "section": "S0",
+      "statement": "When `gh` has more than one account logged in, run `gh auth switch --user ORESoftware` before any mutating operation.",
+      "rationale": null,
+      "source_lines": "L28–29, L640, L812",
+      "enforceable": true,
+      "verification": "pre-flight check that the active `gh` account is ORESoftware before write calls",
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "den-id-in-branch-and-pr-title",
+      "level": "MUST",
+      "section": "S0",
+      "statement": "Put the Linear id (`DEN-<n>`) in both the branch name and the PR title.",
+      "rationale": "so the 1:1:1:1 actually attaches; a mismatch silently files the work against the wrong issue.",
+      "source_lines": "L29–31, L851–852",
+      "enforceable": true,
+      "verification": "regex `DEN-\\d+` on branch ref and PR title, and assert they match",
+      "themes": [
+        "one-to-one-topology-and-canonical-shape"
+      ],
+      "manifestos": [
+        "one-to-one-all-the-way-down"
+      ]
+    },
+    {
+      "id": "work-in-the-specific-repo",
+      "level": "MUST",
+      "section": "S1",
+      "statement": "Work in the specific repo and follow that repo's own `AGENTS.md`.",
+      "rationale": null,
+      "source_lines": "L38",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "ores-and-oresoftware-are-aliases",
+      "level": "MAY",
+      "section": "S1",
+      "statement": "Use either `~/codes/ores` or `~/codes/oresoftware`; they are aliases of each other (but not symlinks of each other).",
+      "rationale": null,
+      "source_lines": "L39",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "try-both-agents-md-paths",
+      "level": "MUST",
+      "section": "S1",
+      "statement": "Try both `~/codes/AGENTS.md` (and the vendor paths beside it) and the in-repo `.ores/agents/AGENTS.md` before concluding the master file is unavailable.",
+      "rationale": "the in-repo link exists \"for agents that cannot walk up past the repository root.",
+      "source_lines": "L43–52",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "fetch-canonical-agents-on-miss",
+      "level": "MUST",
+      "section": "S1",
+      "statement": "If both local paths are missing, fetch the canonical copy from `https://github.com/ORESoftware/my-ai/blob/main/AGENTS.md` using the same GitHub read failover as anything else.",
+      "rationale": null,
+      "source_lines": "L62–64",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "never-copy-agents-md-into-a-repo",
+      "level": "MUST_NOT",
+      "section": "S1",
+      "statement": "Copy this file into another repository \"to make it available.\"",
+      "rationale": "this file is the single source of truth, and a copy silently goes stale — link to it, or fetch the canonical URL.",
+      "source_lines": "L64–66, L987",
+      "enforceable": true,
+      "verification": "scan repos for a file whose content matches `my-ai/AGENTS.md`",
+      "themes": [
+        "one-authority-per-fact"
+      ],
+      "manifestos": [
+        "peer-authorities"
+      ]
+    },
+    {
+      "id": "never-git-add-ores-dir",
+      "level": "MUST_NOT",
+      "section": "S1",
+      "statement": "`git add` the `.ores/` directory.",
+      "rationale": "the in-repo link \"names an absolute path that only resolves on a machine with `~/codes/oresoftware/my-ai` checked out, so a committed copy would be a broken link everywhere else and in CI.",
+      "source_lines": "L54–56, L67",
+      "enforceable": true,
+      "verification": "assert no tracked path under `.ores/` in any repo",
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "repos-commit-pointer-block-and-ignore",
+      "level": "MUST",
+      "section": "S1",
+      "statement": "Each repository commits a short pointer block appended to its own `AGENTS.md` (`lib/agents-pointer.md`) plus a `.gitignore` entry for `.ores/`.",
+      "rationale": null,
+      "source_lines": "L56–58, L987",
+      "enforceable": true,
+      "verification": "assert the pointer block text is present in each repo's `AGENTS.md` and `.ores/` appears in `.gitignore`",
+      "themes": [
+        "one-authority-per-fact"
+      ],
+      "manifestos": [
+        "peer-authorities"
+      ]
+    },
+    {
+      "id": "missing-link-is-a-setup-gap",
+      "level": "MUST_NOT",
+      "section": "S1",
+      "statement": "Treat a missing `.ores/agents/AGENTS.md` as permission to skip these instructions; re-run `./scripts/link-repo-agents.sh` (verified with `--check`).",
+      "rationale": null,
+      "source_lines": "L58–60",
+      "enforceable": true,
+      "verification": "`link-repo-agents.sh --check` is the stated checker",
+      "themes": [
+        "fix-the-root-cause-not-the-symptom"
+      ],
+      "manifestos": []
+    },
+    {
+      "id": "missing-pointer-block-is-a-rollout-gap",
+      "level": "MUST_NOT",
+      "section": "S1",
+      "statement": "Treat a missing pointer block in some other repo's `AGENTS.md` as a reason to skip these rules.",
+      "rationale": null,
+      "source_lines": "L67–69",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "fix-the-root-cause-not-the-symptom"
+      ],
+      "manifestos": []
+    },
+    {
+      "id": "never-read-credentials-from-files-or-chat",
+      "level": "MUST_NOT",
+      "section": "S2",
+      "statement": "Read a credential from this file, from chat history, or from any other repository file.",
+      "rationale": "There are no token literals here by design.",
+      "source_lines": "L73–75, L213–214, L610–611",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "credentials-never-touch-the-repo-or-the-transcript"
+      ],
+      "manifestos": [
+        "secrets-have-one-home"
+      ]
+    },
+    {
+      "id": "credential-resolution-order",
+      "level": "MUST",
+      "section": "S2",
+      "statement": "Resolve credentials in this order: (1) `gh` keyring for GitHub, (2) the canonical store `~/.config/claude-loop-jobs/credentials.env` sourced into the environment, (3) the repo's sops env (`env/enc/*.env.enc` via `ores-sops` / `just`).",
+      "rationale": null,
+      "source_lines": "L76–94",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "credentials-never-touch-the-repo-or-the-transcript"
+      ],
+      "manifestos": [
+        "secrets-have-one-home"
+      ]
+    },
+    {
+      "id": "token-through-env-boundary-not-argv",
+      "level": "MUST",
+      "section": "S2",
+      "statement": "For raw HTTP, use `TOKEN=\"$(gh auth token)\"` and pass it via an environment boundary, never as a command argument.",
+      "rationale": null,
+      "source_lines": "L79–81, L120–121, L683–684",
+      "enforceable": true,
+      "verification": "grep scripts for tokens interpolated into argv positions",
+      "themes": [
+        "credentials-never-touch-the-repo-or-the-transcript"
+      ],
+      "manifestos": [
+        "secrets-have-one-home"
+      ]
+    },
+    {
+      "id": "never-echo-the-credential-store",
+      "level": "MUST_NOT",
+      "section": "S2",
+      "statement": "Echo the canonical credential store; it is sourced into the environment and never echoed.",
+      "rationale": null,
+      "source_lines": "L82–83",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "credentials-never-touch-the-repo-or-the-transcript"
+      ],
+      "manifestos": [
+        "secrets-have-one-home"
+      ]
+    },
+    {
+      "id": "burned-keys-are-unusable",
+      "level": "MUST_NOT",
+      "section": "S2",
+      "statement": "Use any key prefixed `BURNED_DO_NOT_USE_`; they are retained for identification only.",
+      "rationale": null,
+      "source_lines": "L90–91",
+      "enforceable": true,
+      "verification": "assert no code reads a `BURNED_DO_NOT_USE_*` variable",
+      "themes": [
+        "credentials-never-touch-the-repo-or-the-transcript"
+      ],
+      "manifestos": [
+        "secrets-have-one-home"
+      ]
+    },
+    {
+      "id": "stop-and-ask-for-reauthentication",
+      "level": "MUST",
+      "section": "S2",
+      "statement": "If none of the credential paths work, stop and ask for reauthentication.",
+      "rationale": null,
+      "source_lines": "L95, L603–604, L611–612",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "no-revoke-or-rotate-without-authorization",
+      "level": "MUST_NOT",
+      "section": "S2",
+      "statement": "Revoke or rotate anything without explicit human authorization.",
+      "rationale": null,
+      "source_lines": "L95–96, L152, L200–201",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "credentials-never-touch-the-repo-or-the-transcript"
+      ],
+      "manifestos": [
+        "secrets-have-one-home"
+      ]
+    },
+    {
+      "id": "found-token-is-exposure-not-fallback",
+      "level": "MUST_NOT",
+      "section": "S2",
+      "statement": "Treat a token found in a file or a transcript as a credential fallback; \"that is exposed material that needs rotating, not a credential.\"",
+      "rationale": null,
+      "source_lines": "L96–98, L610–611",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "credentials-never-touch-the-repo-or-the-transcript"
+      ],
+      "manifestos": [
+        "secrets-have-one-home"
+      ]
+    },
+    {
+      "id": "flags-2-env-at-every-argv-boundary",
+      "level": "MUST",
+      "section": "S3",
+      "statement": "Every executable CLI, web server, API server, admin web server, and admin API server that accepts command-line options must use the canonical `flags-2-env` parser at its argv boundary.",
+      "rationale": "This is a required runtime integration, not a documentation hint.",
+      "source_lines": "L102–105",
+      "enforceable": true,
+      "verification": "assert a `flags-2-env` binding is imported and invoked in each binary's entrypoint",
+      "themes": [],
+      "manifestos": [
+        "one-contract-one-parser"
+      ]
+    },
+    {
+      "id": "cli-flags-toml-is-the-contract",
+      "level": "MUST",
+      "section": "S3",
+      "statement": "Put the public command/flag contract in a repository-root `.cli-flags.toml`; commands, option aliases, types, defaults, environment keys, help, and precedence have exactly one authority — that contract.",
+      "rationale": null,
+      "source_lines": "L106–108",
+      "enforceable": true,
+      "verification": "assert `.cli-flags.toml` exists at repo root for every repo shipping a CLI/server",
+      "themes": [
+        "one-authority-per-fact"
+      ],
+      "manifestos": [
+        "peer-authorities"
+      ]
+    },
+    {
+      "id": "full-flags-2-env-integration",
+      "level": "MUST",
+      "section": "S3",
+      "statement": "Add the runtime's official `flags-2-env` binding, audit the contract before startup, parse argv through it, reject unknown options and invalid typed values without continuing, then pass an immutable resolved configuration inward.",
+      "rationale": null,
+      "source_lines": "L109–113",
+      "enforceable": true,
+      "verification": "a fixture test that an unknown flag exits non-zero before startup",
+      "themes": [
+        "fail-closed-and-typed"
+      ],
+      "manifestos": [
+        "fail-closed"
+      ]
+    },
+    {
+      "id": "toml-only-is-not-integration",
+      "level": "MUST_NOT",
+      "section": "S3",
+      "statement": "Call the flags-2-env integration complete when only the TOML file, generated env constants, or a config-audit call exists.",
+      "rationale": null,
+      "source_lines": "L112–113",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "fail-closed-and-typed"
+      ],
+      "manifestos": [
+        "fail-closed"
+      ]
+    },
+    {
+      "id": "no-second-option-schema",
+      "level": "MUST_NOT",
+      "section": "S3",
+      "statement": "Leave clap, argparse, commander or similar as an independent parser or second option schema; they may only project already-resolved values into application types.",
+      "rationale": null,
+      "source_lines": "L114–116",
+      "enforceable": true,
+      "verification": "grep for a clap/commander parser invoked on raw `argv`",
+      "themes": [
+        "one-authority-per-fact",
+        "fail-closed-and-typed"
+      ],
+      "manifestos": [
+        "fail-closed",
+        "peer-authorities"
+      ]
+    },
+    {
+      "id": "no-silent-env-parsing-fallback",
+      "level": "MUST_NOT",
+      "section": "S3",
+      "statement": "Silently fall back to plain environment parsing; parser/config failures are startup failures.",
+      "rationale": null,
+      "source_lines": "L116–117",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "fail-closed-and-typed"
+      ],
+      "manifestos": [
+        "fail-closed"
+      ]
+    },
+    {
+      "id": "flags-2-env-owns-dotenv-precedence",
+      "level": "MUST",
+      "section": "S3",
+      "statement": "Use `flags-2-env` for `.env` precedence too, and avoid adding dotenv-style loaders when it already covers the runtime.",
+      "rationale": null,
+      "source_lines": "L118–120",
+      "enforceable": true,
+      "verification": "grep for `dotenv`-family dependencies in repos that already depend on `flags-2-env`",
+      "themes": [
+        "one-authority-per-fact"
+      ],
+      "manifestos": [
+        "peer-authorities"
+      ]
+    },
+    {
+      "id": "no-credentials-as-cli-flags",
+      "level": "MUST_NOT",
+      "section": "S3",
+      "statement": "Expose credentials as CLI flags; credentials remain environment/secret-store only.",
+      "rationale": "argv is visible in process listings and shell history.",
+      "source_lines": "L120–121",
+      "enforceable": true,
+      "verification": "assert no `.cli-flags.toml` option is typed/named as a secret",
+      "themes": [
+        "credentials-never-touch-the-repo-or-the-transcript"
+      ],
+      "manifestos": [
+        "secrets-have-one-home"
+      ]
+    },
+    {
+      "id": "use-ores-sops-lifecycle",
+      "level": "MUST",
+      "section": "S3",
+      "statement": "Use `ores-sops` with SOPS, age, Just and Nix for the encrypted environment-file lifecycle.",
+      "rationale": null,
+      "source_lines": "L122–123",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": [
+        "one-contract-one-parser"
+      ]
+    },
+    {
+      "id": "track-only-encrypted-env-files",
+      "level": "MUST",
+      "section": "S3",
+      "statement": "Track only encrypted environment files under `env/enc/*.env.enc`, and decrypt them to the ignored `env/dec/*.env` runtime directory.",
+      "rationale": null,
+      "source_lines": "L124–126",
+      "enforceable": true,
+      "verification": "assert no tracked file under `env/dec/` and that `env/dec/` is gitignored",
+      "themes": [
+        "one-authority-per-fact"
+      ],
+      "manifestos": [
+        "peer-authorities"
+      ]
+    },
+    {
+      "id": "never-commit-plaintext-env",
+      "level": "MUST_NOT",
+      "section": "S3",
+      "statement": "Commit plaintext files from `env/dec/`.",
+      "rationale": null,
+      "source_lines": "L125–126",
+      "enforceable": true,
+      "verification": "same check plus a content scan for unencrypted `.env` bodies",
+      "themes": [],
+      "manifestos": [
+        "one-contract-one-parser"
+      ]
+    },
+    {
+      "id": "central-secrets-from-fiducia-keystore",
+      "level": "MUST",
+      "section": "S3",
+      "statement": "Load the small number of centrally managed runtime secrets from the `fiducia-cloud` secrets keystore; GitHub Actions secrets may be a backup delivery path, but `env/enc/*.env.enc` remains the version-controlled source of truth.",
+      "rationale": null,
+      "source_lines": "L127–130",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "one-authority-per-fact"
+      ],
+      "manifestos": [
+        "peer-authorities"
+      ]
+    },
+    {
+      "id": "follow-22-factor-apps",
+      "level": "MUST",
+      "section": "S4",
+      "statement": "Follow `github.com/22-factor-apps` and the Twenty-Two-Factor site for general project and operational best practices across this workspace.",
+      "rationale": null,
+      "source_lines": "L135–137",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "typespec-and-json-schema-are-peers",
+      "level": "MUST",
+      "section": "S5",
+      "statement": "Keep JSON Schema and TypeSpec definitions at the same level; TypeSpec must not be the upstream generator of JSON Schema / OpenAPI / Protobuf.",
+      "rationale": "the chained flow `TypeSpec → JSON Schema / OpenAPI / Protobuf → wire clients` is explicitly labelled \"wrong\".",
+      "source_lines": "L141–147",
+      "enforceable": true,
+      "verification": "assert no generator step whose input is TypeSpec and output is JSON Schema/OpenAPI",
+      "themes": [
+        "fail-closed-and-typed"
+      ],
+      "manifestos": [
+        "fail-closed"
+      ]
+    },
+    {
+      "id": "typespec-generates-sql-protobuf-grpc",
+      "level": "MUST",
+      "section": "S5",
+      "statement": "Use the flow `TypeSpec → sql, Protobuf, grpc → wire clients`.",
+      "rationale": null,
+      "source_lines": "L146–147",
+      "enforceable": true,
+      "verification": "inspect the codegen graph's edges",
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "json-schema-generates-types-and-sql",
+      "level": "MUST",
+      "section": "S5",
+      "statement": "Pair that with the flow `JSON Schema / OpenAPI → generate interfaces and types in various clients and generate sql → write clients`.",
+      "rationale": null,
+      "source_lines": "L149–150",
+      "enforceable": true,
+      "verification": "same graph inspection",
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "only-configured-clients-or-approved-channel",
+      "level": "MUST",
+      "section": "S5",
+      "statement": "Use only configured GitHub and Linear clients, or credentials delivered through an approved runtime secret channel.",
+      "rationale": null,
+      "source_lines": "L152",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "no-credential-values-in-this-policy",
+      "level": "MUST_NOT",
+      "section": "S5",
+      "statement": "Store credential values in this policy document.",
+      "rationale": null,
+      "source_lines": "L152, L192",
+      "enforceable": true,
+      "verification": "run a secret scanner over `AGENTS.md`",
+      "themes": [
+        "credentials-never-touch-the-repo-or-the-transcript"
+      ],
+      "manifestos": [
+        "secrets-have-one-home"
+      ]
+    },
+    {
+      "id": "org-paired-with-owned-apex-domain",
+      "level": "MUST",
+      "section": "S6",
+      "statement": "Pair every GitHub organization with an apex domain that we own; do not hard-code `.com`/`.dev`/`.net`/`.co` — the suffix is a placeholder.",
+      "rationale": null,
+      "source_lines": "L157–162",
+      "enforceable": true,
+      "verification": "assert an owned-domain record exists per org in the inventory",
+      "themes": [
+        "one-to-one-topology-and-canonical-shape"
+      ],
+      "manifestos": [
+        "one-to-one-all-the-way-down"
+      ]
+    },
+    {
+      "id": "astro-marketing-site-per-org",
+      "level": "MUST",
+      "section": "S6",
+      "statement": "Every organization must have an Astro marketing site at `https://*.github.io/`.",
+      "rationale": null,
+      "source_lines": "L164–165",
+      "enforceable": true,
+      "verification": "assert the `*.github.io` repo exists and Pages resolves 200 for each org",
+      "themes": [
+        "one-to-one-topology-and-canonical-shape"
+      ],
+      "manifestos": [
+        "one-to-one-all-the-way-down"
+      ]
+    },
+    {
+      "id": "org-site-repo-naming",
+      "level": "MUST",
+      "section": "S6",
+      "statement": "Create the organization-site repository as `*.github.io`, with the asterisk replaced by the GitHub organization name.",
+      "rationale": null,
+      "source_lines": "L165–167",
+      "enforceable": true,
+      "verification": "repo-name regex per org",
+      "themes": [
+        "one-to-one-topology-and-canonical-shape"
+      ],
+      "manifestos": [
+        "one-to-one-all-the-way-down"
+      ]
+    },
+    {
+      "id": "no-jekyll-no-hugo",
+      "level": "MUST_NOT",
+      "section": "S6",
+      "statement": "Use Jekyll or Hugo for the org site; use Astro.",
+      "rationale": null,
+      "source_lines": "L167",
+      "enforceable": true,
+      "verification": "assert `astro` in the site repo's manifest and no `_config.yml` / `config.toml` Hugo marker",
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "site-sections-and-shared-chrome",
+      "level": "MUST",
+      "section": "S6",
+      "statement": "Give the site separate pages and folders for its major sections, link those sections from the root page, and use strong shared headers and footers.",
+      "rationale": null,
+      "source_lines": "L167–169",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "prefer-sticky-header",
+      "level": "SHOULD",
+      "section": "S6",
+      "statement": "Prefer a sticky header on the marketing site.",
+      "rationale": null,
+      "source_lines": "L169–170",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "site-must-be-responsive",
+      "level": "MUST",
+      "section": "S6",
+      "statement": "Make the full site highly responsive across mobile, tablet, and desktop viewports.",
+      "rationale": null,
+      "source_lines": "L170",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "marketing-site-links-to-login-apps",
+      "level": "MUST",
+      "section": "S6",
+      "statement": "The marketing site must provide clear links for users and organizations to reach their respective login applications.",
+      "rationale": null,
+      "source_lines": "L172–173",
+      "enforceable": true,
+      "verification": "assert links to `user.*.*` and `org.*.*` exist on the site root",
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "cloudflare-is-the-dns-and-proxy-layer",
+      "level": "MUST",
+      "section": "S6",
+      "statement": "Cloudflare is the public DNS and proxy layer for the owned domain.",
+      "rationale": null,
+      "source_lines": "L173–174",
+      "enforceable": true,
+      "verification": "assert nameservers point at Cloudflare and records are proxied",
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "canonical-subdomain-contract",
+      "level": "MUST",
+      "section": "S6",
+      "statement": "Use the canonical subdomain contract: `auth.*.*` (auth proxy for `shared-auth` servers), `org.*.*` (org login/app → web server), `user.*.*` (user login → web server), `api.*.*` (api server), `admin.*.*` (admin web server), `api-admin.*.*` (admin api server).",
+      "rationale": null,
+      "source_lines": "L176–183",
+      "enforceable": true,
+      "verification": "DNS-record assertion for the six names per owned domain",
+      "themes": [
+        "one-to-one-topology-and-canonical-shape"
+      ],
+      "manifestos": [
+        "one-to-one-all-the-way-down"
+      ]
+    },
+    {
+      "id": "record-topology-in-linear-project",
+      "level": "MUST",
+      "section": "S6",
+      "statement": "Record the concrete organization, owned domain, GitHub Pages repository, and Cloudflare routing implementation in the organization's corresponding Linear project.",
+      "rationale": "it is \"part of the 1:1:1:1:1:1:1 organization/data/edge/cloud/project/channel convention.",
+      "source_lines": "L185–187",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "one-to-one-topology-and-canonical-shape"
+      ],
+      "manifestos": [
+        "one-to-one-all-the-way-down"
+      ]
+    },
+    {
+      "id": "no-live-credentials-in-repo-or-agents-md",
+      "level": "MUST_NOT",
+      "section": "S7",
+      "statement": "Keep live credentials in this repository or in any `AGENTS.md`.",
+      "rationale": null,
+      "source_lines": "L192",
+      "enforceable": true,
+      "verification": "secret scanner over all `AGENTS.md` files",
+      "themes": [
+        "credentials-never-touch-the-repo-or-the-transcript"
+      ],
+      "manifestos": [
+        "secrets-have-one-home"
+      ]
+    },
+    {
+      "id": "never-place-a-secret-anywhere",
+      "level": "MUST_NOT",
+      "section": "S7",
+      "statement": "Commit, paste, print, log, upload, or place a GitHub PAT, Linear token, Cloudflare API token, R2 access key, R2 secret key, session cookie, private key, or decrypted environment value in Git, a remote URL, shell history, a command argument, a PR, an issue, Linear, Slack, chat, or R2 object metadata.",
+      "rationale": null,
+      "source_lines": "L192–196",
+      "enforceable": true,
+      "verification": "secret scanning across commits, PR bodies, issue bodies and object metadata",
+      "themes": [
+        "credentials-never-touch-the-repo-or-the-transcript"
+      ],
+      "manifestos": [
+        "secrets-have-one-home"
+      ]
+    },
+    {
+      "id": "exposed-credential-is-reported-not-reused",
+      "level": "MUST",
+      "section": "S7",
+      "statement": "If a credential appears in any of those locations, treat it as exposed: do not reuse it or copy it into another system; report the exposure and ask the owner to rotate it.",
+      "rationale": null,
+      "source_lines": "L198–200",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "credentials-never-touch-the-repo-or-the-transcript"
+      ],
+      "manifestos": [
+        "secrets-have-one-home"
+      ]
+    },
+    {
+      "id": "credential-use-order",
+      "level": "MUST",
+      "section": "S7",
+      "statement": "Use credentials in this order: (1) existing local authentication from the OS keychain or an approved helper (`gh` keyring or SSH; the configured Linear client; `wrangler` login or a scoped secret-manager entry), (2) a task-specific least-privilege credential through an approved secret channel, (3) interactive re-authentication by the human owner.",
+      "rationale": null,
+      "source_lines": "L203–211",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "credentials-never-touch-the-repo-or-the-transcript"
+      ],
+      "manifestos": [
+        "secrets-have-one-home"
+      ]
+    },
+    {
+      "id": "task-credential-is-process-scoped",
+      "level": "MUST",
+      "section": "S7",
+      "statement": "A task-specific credential may override the local credential for that process only; inject it through the environment and never persist or echo it.",
+      "rationale": null,
+      "source_lines": "L208–210, L214–216",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "prefer-gh-and-ssh-for-github",
+      "level": "SHOULD",
+      "section": "S7",
+      "statement": "For GitHub prefer `gh auth token >/dev/null`, `gh api`, and SSH.",
+      "rationale": null,
+      "source_lines": "L218",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "linear-credential-sources",
+      "level": "MUST",
+      "section": "S7",
+      "statement": "For Linear, use the configured client or a secret-manager-backed `LINEAR_API_KEY`.",
+      "rationale": null,
+      "source_lines": "L218–219",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "non-overlapping-cloudflare-and-r2-sets",
+      "level": "MUST",
+      "section": "S7",
+      "statement": "Use two non-overlapping credential sets: `CLOUDFLARE_API_TOKEN` + `CLOUDFLARE_ACCOUNT_ID` for Cloudflare REST/API operations, and bucket-scoped `AWS_ACCESS_KEY_ID` + `AWS_SECRET_ACCESS_KEY` + `R2_ENDPOINT_URL` + `R2_BUCKET` for R2 S3-compatible operations.",
+      "rationale": null,
+      "source_lines": "L219–225",
+      "enforceable": true,
+      "verification": "assert no process is handed both sets",
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "account-id-and-bucket-outside-source",
+      "level": "MUST",
+      "section": "S7",
+      "statement": "Keep the R2 account ID and bucket configuration outside source when the deployment treats them as private.",
+      "rationale": null,
+      "source_lines": "L228–230",
+      "enforceable": true,
+      "verification": "grep for a literal `<account-id>.r2.cloudflarestorage.com` host in tracked files",
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "test-the-path-without-printing-credentials",
+      "level": "MUST",
+      "section": "S7",
+      "statement": "Test the exact credential path without printing credentials (e.g. `gh auth token >/dev/null`, `gh api user --jq .login`, `aws s3api head-bucket ... >/dev/null`).",
+      "rationale": null,
+      "source_lines": "L230–236",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "verify-the-thing-not-a-proxy-for-it"
+      ],
+      "manifestos": [
+        "evidence-over-assertion"
+      ]
+    },
+    {
+      "id": "git-is-the-primary-durable-backup",
+      "level": "MUST",
+      "section": "S7",
+      "statement": "Git commits, a pushed branch, and a pull request are the primary durable backup for code.",
+      "rationale": null,
+      "source_lines": "L238–239",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "remote-or-it-did-not-happen"
+      ],
+      "manifestos": [
+        "work-does-not-sit-locally"
+      ]
+    },
+    {
+      "id": "r2-is-last-resort-only",
+      "level": "MAY",
+      "section": "S7",
+      "statement": "Use R2 as a last-resort artifact backup only if every Git publication path is unavailable, and only after reviewing explicit paths and running the repository secret scanner.",
+      "rationale": null,
+      "source_lines": "L239–241",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "r2-artifact-path-layout",
+      "level": "MUST",
+      "section": "S7",
+      "statement": "Store R2 backup artifacts under `codes/<org>/<repo>/<branch>/<commit-or-utc-timestamp>/`.",
+      "rationale": null,
+      "source_lines": "L241–245",
+      "enforceable": true,
+      "verification": "key-prefix regex check on the bucket listing",
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "r2-manifest-required",
+      "level": "MUST",
+      "section": "S7",
+      "statement": "Include a manifest with the source repository, branch, base commit, creation time, included paths, and SHA-256 checksums.",
+      "rationale": null,
+      "source_lines": "L246–248",
+      "enforceable": true,
+      "verification": "assert a manifest object exists per artifact prefix with those fields",
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "encrypt-sensitive-artifacts-before-upload",
+      "level": "MUST",
+      "section": "S7",
+      "statement": "Encrypt sensitive-but-allowed artifacts before upload with a recipient-controlled key.",
+      "rationale": null,
+      "source_lines": "L248–249",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "never-upload-forbidden-artifacts",
+      "level": "MUST_NOT",
+      "section": "S7",
+      "statement": "Upload `.git/`, ignored files, plaintext `.env` files, credentials, keychains, SSH keys, age identities, decrypted SOPS data, database dumps containing user data, or an unreviewed whole-workspace archive.",
+      "rationale": null,
+      "source_lines": "L249–253",
+      "enforceable": true,
+      "verification": "path/extension denylist applied to the upload set before transfer",
+      "themes": [
+        "credentials-never-touch-the-repo-or-the-transcript"
+      ],
+      "manifestos": [
+        "secrets-have-one-home"
+      ]
+    },
+    {
+      "id": "r2-object-is-not-a-delivery",
+      "level": "MUST",
+      "section": "S7",
+      "statement": "After Git access returns, land the reviewed source through the normal commit/push/PR flow; an R2 object alone is not a completed delivery.",
+      "rationale": null,
+      "source_lines": "L253–254",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "remote-or-it-did-not-happen"
+      ],
+      "manifestos": [
+        "work-does-not-sit-locally"
+      ]
+    },
+    {
+      "id": "avoid-rebase",
+      "level": "MUST_NOT",
+      "section": "S8",
+      "statement": "Avoid `git rebase`, strongly preferring `git merge` without rebase.",
+      "rationale": "it rewrites history and breaks shared branches.",
+      "source_lines": "L257, L271, L866, L918, L978, L986",
+      "enforceable": true,
+      "verification": "reflog/CI check that the branch tip's history is not rewritten",
+      "themes": [
+        "merge-by-meaning-not-by-side"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "semantic-conflict-resolution",
+      "level": "MUST",
+      "section": "S8",
+      "statement": "On any git conflict, resolve semantically using total context and at least **15** commits of git history — figure out how to resolve conflicts conceptually and merge the code, never merely picking sides or doing shallow analysis.",
+      "rationale": null,
+      "source_lines": "L257",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "merge-by-meaning-not-by-side"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "use-analogous-repos-as-conflict-context",
+      "level": "MUST",
+      "section": "S8",
+      "statement": "Use other GitHub repos in the same org and in similar orgs (usually matching by repo name) as conceptual context when resolving conflicts, since we have many analogous repos across orgs.",
+      "rationale": null,
+      "source_lines": "L257",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "merge-by-meaning-not-by-side",
+        "one-to-one-topology-and-canonical-shape"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides",
+        "one-to-one-all-the-way-down"
+      ]
+    },
+    {
+      "id": "avoid-stash",
+      "level": "MUST_NOT",
+      "section": "S8",
+      "statement": "Avoid `git stash`.",
+      "rationale": null,
+      "source_lines": "L257, L865, L918, L1036–1037",
+      "enforceable": true,
+      "verification": "assert `git stash list` is empty after an agent session",
+      "themes": [
+        "merge-by-meaning-not-by-side"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "no-reset-without-permission",
+      "level": "MUST_NOT",
+      "section": "S8",
+      "statement": "Never `git reset` without human user permission.",
+      "rationale": null,
+      "source_lines": "L257, L668–669, L865, L918, L986",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "never-lose-work",
+        "merge-by-meaning-not-by-side"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "no-destructive-ops-without-permission",
+      "level": "MUST_NOT",
+      "section": "S8",
+      "statement": "Perform no destructive operations without human user permission or explicit pre-authorization.",
+      "rationale": null,
+      "source_lines": "L257",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "never-lose-work"
+      ],
+      "manifestos": []
+    },
+    {
+      "id": "read-original-agents-before-nontrivial-git",
+      "level": "MUST",
+      "section": "S8",
+      "statement": "Read `my-ai/original-agents.md` before any non-trivial git operation.",
+      "rationale": "The reasoning behind those rules, and the procedures they imply, are in\" that file.",
+      "source_lines": "L259–260",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "merge-by-meaning-not-by-side"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "sync-is-two-way",
+      "level": "MUST",
+      "section": "S8",
+      "statement": "Treat syncing as two-way: a clean local tree is not \"synced\"; you are done only when local and remote hold the same commits. Commit first, then `fetch --all --prune`, then `pull`/`merge`, then `push`.",
+      "rationale": null,
+      "source_lines": "L262; `original-agents.md` L18–34",
+      "enforceable": true,
+      "verification": "assert ahead/behind counts are 0/0 against the tracking ref",
+      "themes": [
+        "remote-or-it-did-not-happen"
+      ],
+      "manifestos": [
+        "work-does-not-sit-locally"
+      ]
+    },
+    {
+      "id": "do-not-wait-for-a-commit-instruction",
+      "level": "MUST_NOT",
+      "section": "S8",
+      "statement": "Wait for the user to say \"commit\" or \"push\" once the change is verified.",
+      "rationale": null,
+      "source_lines": "L262, L286–289",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "land-without-asking"
+      ],
+      "manifestos": [
+        "work-does-not-sit-locally"
+      ]
+    },
+    {
+      "id": "ready-work-never-stays-local",
+      "level": "MUST_NOT",
+      "section": "S8",
+      "statement": "Leave ready work only on the local disk.",
+      "rationale": null,
+      "source_lines": "L262, L296–297, L985",
+      "enforceable": true,
+      "verification": "a fleet scan for unpushed commits/branches",
+      "themes": [
+        "remote-or-it-did-not-happen"
+      ],
+      "manifestos": [
+        "work-does-not-sit-locally"
+      ]
+    },
+    {
+      "id": "use-wip-branch-not-stash",
+      "level": "MUST",
+      "section": "S8",
+      "statement": "Use a `wip/<what-it-is>` scratch branch instead of a stash.",
+      "rationale": "Stashes are invisible: they live in no remote and do not appear in `git status` or ahead/behind counts, so a repo holding thousands of lines of stashed work reports a clean tree to you and to every tool that scans for unlanded work.",
+      "source_lines": "L263; `original-agents.md` L80–108",
+      "enforceable": true,
+      "verification": "branch-name regex on scratch branches; stash list empty",
+      "themes": [
+        "invisible-state-is-the-enemy"
+      ],
+      "manifestos": []
+    },
+    {
+      "id": "stage-explicit-paths-never-dash-a",
+      "level": "MUST_NOT",
+      "section": "S8",
+      "statement": "Use `git add -A` / `git add -a`; stage explicit paths.",
+      "rationale": "most checkouts here carry someone else's WIP or a pending `.gitignore`. `-A` is how you commit work that is not yours, plus secrets.",
+      "source_lines": "L263, L266–268, L291, L1035, L1095; `original-agents.md` L102–105",
+      "enforceable": true,
+      "verification": "reject shell commands matching `git add\\s+-A|-a` in agent transcripts/scripts",
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "rescue-a-foreign-stash-never-pop-it",
+      "level": "MUST",
+      "section": "S8",
+      "statement": "If you find someone else's stash, make it reachable with `git branch rescue/<id> refs/stash` — never pop it.",
+      "rationale": null,
+      "source_lines": "L263; `original-agents.md` L124–134",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "never-lose-work"
+      ],
+      "manifestos": []
+    },
+    {
+      "id": "worktrees-require-human-instruction",
+      "level": "MUST_NOT",
+      "section": "S8",
+      "statement": "Create or use a git worktree without explicit human instruction for the current task; concurrent agent activity is not permission.",
+      "rationale": null,
+      "source_lines": "L264, L1064–1065; `original-agents.md` L60–62",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "main-is-production-dev-is-integration",
+      "level": "MUST",
+      "section": "S8",
+      "statement": "Treat `main` as production and `dev` as integration.",
+      "rationale": null,
+      "source_lines": "L264; `original-agents.md` L54–59",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "dd-is-out-of-scope",
+      "level": "MUST_NOT",
+      "section": "S8",
+      "statement": "Touch `~/codes/dd` or anything under it from any automated tooling or agent task.",
+      "rationale": "the dancing-dragons project is outmoded.",
+      "source_lines": "L265; `original-agents.md` L11–14",
+      "enforceable": true,
+      "verification": "path exclusion assertion in every fleet script",
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "protected-branch-means-open-a-pr",
+      "level": "MUST",
+      "section": "S8",
+      "statement": "Treat a protected-branch rejection on `main`/`dev` (`hook declined`, \"Changes must be made through a pull request\") as an instruction to push a feature branch and open a PR — it is not a merge-rule exception, does not authorize force-push, does not mean rebase onto main, and does not mean the work stays local.",
+      "rationale": null,
+      "source_lines": "L269–272, L816",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "land-without-asking"
+      ],
+      "manifestos": [
+        "work-does-not-sit-locally"
+      ]
+    },
+    {
+      "id": "always-push-after-committing",
+      "level": "MUST",
+      "section": "S9",
+      "statement": "Always push the code/commits to GitHub when done committing — via the GitHub MCP server, SSH, `gh` CLI, or a web browser tab; sitting on the code locally is not acceptable.",
+      "rationale": null,
+      "source_lines": "L276",
+      "enforceable": true,
+      "verification": "no local commits ahead of the remote at end of task",
+      "themes": [
+        "remote-or-it-did-not-happen"
+      ],
+      "manifestos": [
+        "work-does-not-sit-locally"
+      ]
+    },
+    {
+      "id": "take-ten-next-steps-when-idle",
+      "level": "MUST",
+      "section": "S9",
+      "statement": "If no further instructions are given and you have cycles, take next steps: take care of at least 10 tasks from this thread/chat and from Linear app projects.",
+      "rationale": null,
+      "source_lines": "L278",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "land-without-asking"
+      ],
+      "manifestos": [
+        "work-does-not-sit-locally"
+      ]
+    },
+    {
+      "id": "open-prs-even-draft-and-merge-ready-ones",
+      "level": "MUST",
+      "section": "S9",
+      "statement": "Open pull requests, even if only draft PRs, and merge any PRs that are ready/tested.",
+      "rationale": null,
+      "source_lines": "L280",
+      "enforceable": true,
+      "verification": "assert every pushed feature branch has an associated open PR",
+      "themes": [
+        "land-without-asking"
+      ],
+      "manifestos": [
+        "work-does-not-sit-locally"
+      ]
+    },
+    {
+      "id": "backup-elsewhere-if-github-unreachable",
+      "level": "MUST",
+      "section": "S9",
+      "statement": "If GitHub cannot be reached, back up the commits/artifacts to Cloudflare R2, Google Drive, or the Linear app rather than leaving them only locally.",
+      "rationale": null,
+      "source_lines": "L282",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "remote-or-it-did-not-happen"
+      ],
+      "manifestos": [
+        "work-does-not-sit-locally"
+      ]
+    },
+    {
+      "id": "never-ask-whether-to-commit-or-pr",
+      "level": "MUST_NOT",
+      "section": "S10",
+      "statement": "Ask \"say if you want those committed and opened as PRs\", or end a turn holding uncommitted or unpushed implementation behind a question about whether to land it.",
+      "rationale": "We cannot afford that delay… Asking whether to commit/PR is a failure mode. The human can close, convert, or reject a draft; they cannot review work that never left the machine.",
+      "source_lines": "L286–289, L300–301",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "land-without-asking"
+      ],
+      "manifestos": [
+        "work-does-not-sit-locally"
+      ]
+    },
+    {
+      "id": "default-landing-sequence",
+      "level": "MUST",
+      "section": "S10",
+      "statement": "After finishing a slice of real work: (1) commit it with explicit paths, (2) `fetch --all --prune`, merge upstream if needed, then `push -u`, (3) open a GitHub pull request, (4) repeat as you go.",
+      "rationale": null,
+      "source_lines": "L289–298",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "land-without-asking"
+      ],
+      "manifestos": [
+        "work-does-not-sit-locally"
+      ]
+    },
+    {
+      "id": "never-commit-secrets",
+      "level": "MUST_NOT",
+      "section": "S10",
+      "statement": "Commit `.env` files, PATs, age keys, or other secrets.",
+      "rationale": null,
+      "source_lines": "L291",
+      "enforceable": true,
+      "verification": "pre-commit/CI secret scan and a filename denylist",
+      "themes": [
+        "credentials-never-touch-the-repo-or-the-transcript"
+      ],
+      "manifestos": [
+        "secrets-have-one-home"
+      ]
+    },
+    {
+      "id": "draft-pr-when-incomplete",
+      "level": "MUST",
+      "section": "S10",
+      "statement": "Open the PR as a **draft** if the work is incomplete, tests are owed, or CI may still fail; open a normal PR if it is ready for review.",
+      "rationale": "A draft PR that exists on GitHub is always better than finished code that only lives on one laptop.",
+      "source_lines": "L293–297",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "land-without-asking"
+      ],
+      "manifestos": [
+        "work-does-not-sit-locally"
+      ]
+    },
+    {
+      "id": "pr-url-in-turn-summary",
+      "level": "MUST",
+      "section": "S10",
+      "statement": "Put the PR URL in the turn summary.",
+      "rationale": null,
+      "source_lines": "L295",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "land-without-asking"
+      ],
+      "manifestos": [
+        "work-does-not-sit-locally"
+      ]
+    },
+    {
+      "id": "landing-default-authorizes-nothing-destructive",
+      "level": "MUST_NOT",
+      "section": "S10",
+      "statement": "Read the landing default as authorization for force-push, rebase, stash, reset, or committing onto `main` unless the human named `main`.",
+      "rationale": null,
+      "source_lines": "L301–303",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "land-without-asking"
+      ],
+      "manifestos": [
+        "work-does-not-sit-locally"
+      ]
+    },
+    {
+      "id": "feature-branch-off-latest-remote-default",
+      "level": "MUST",
+      "section": "S10",
+      "statement": "Put feature work on a branch off the latest remote default branch.",
+      "rationale": null,
+      "source_lines": "L303",
+      "enforceable": true,
+      "verification": "assert the PR's merge-base is at or near the remote default head at branch creation",
+      "themes": [
+        "land-without-asking"
+      ],
+      "manifestos": [
+        "work-does-not-sit-locally"
+      ]
+    },
+    {
+      "id": "closing-a-pr-requires-the-salvage-pass",
+      "level": "MUST",
+      "section": "S10",
+      "statement": "Closing a PR still requires the salvage pass.",
+      "rationale": null,
+      "source_lines": "L303, L889",
+      "enforceable": true,
+      "verification": "assert every closed-unmerged PR carries a salvage-record comment",
+      "themes": [
+        "salvage-before-closure"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "standing-rule-after-a-yes",
+      "level": "MUST",
+      "section": "S10",
+      "statement": "When the human says \"yes commit and open PRs\" after an agent offered to wait, treat that as the standing rule, not a one-off.",
+      "rationale": null,
+      "source_lines": "L305–306",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "land-without-asking"
+      ],
+      "manifestos": [
+        "work-does-not-sit-locally"
+      ]
+    },
+    {
+      "id": "deploy-through-k8s-cluster-repo",
+      "level": "MUST",
+      "section": "S10",
+      "statement": "Deploy servers/deployments through the AWS EC2 and Hetzner k8s clusters stored in VCS at `github.com/oresoftware/k8s-cluster`; that is the primary deployment path.",
+      "rationale": null,
+      "source_lines": "L309–310",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "fiducia-services-on-separate-clusters",
+      "level": "MUST",
+      "section": "S10",
+      "statement": "Deploy `fiducia-cloud` services (`fiducia-node.rs`, `fiducia-brain.rs`) on entirely separate k8s clusters — they are the only exception to the primary clusters.",
+      "rationale": null,
+      "source_lines": "L311",
+      "enforceable": true,
+      "verification": "assert those two services are absent from `k8s-cluster`'s deployment set",
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "superproject-submodule-layouts",
+      "level": "MUST",
+      "section": "S11",
+      "statement": "Place submodules per the two canonical layouts: an org's deployable apps under `apps/` in `github.com/*/*-monorepo`, and every service we deploy to k8s under `remote/deployments/` in `github.com/oresoftware/k8s-cluster` (with libraries/shared code under `remote/submodules/`, `remote/modules/`, `remote/libs`).",
+      "rationale": null,
+      "source_lines": "L315–327",
+      "enforceable": true,
+      "verification": "assert every `.gitmodules` path in these repos matches the allowed prefixes",
+      "themes": [
+        "one-to-one-topology-and-canonical-shape"
+      ],
+      "manifestos": [
+        "one-to-one-all-the-way-down"
+      ]
+    },
+    {
+      "id": "submodule-checkout-is-a-secondary-copy",
+      "level": "MUST",
+      "section": "S11",
+      "statement": "Treat a submodule checkout as a secondary copy; the source of truth is its own upstream repo, never the copy vendored into the superproject.",
+      "rationale": null,
+      "source_lines": "L329–332",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "one-authority-per-fact"
+      ],
+      "manifestos": [
+        "peer-authorities"
+      ]
+    },
+    {
+      "id": "develop-upstream-then-bump-the-pin",
+      "level": "MUST",
+      "section": "S11",
+      "statement": "Develop in the upstream repo (or its standalone `~/codes/<org>/<repo>` clone), commit/merge/push there first, and only then bump the pointer (the \"pin\") in the superproject.",
+      "rationale": null,
+      "source_lines": "L333–337",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "one-authority-per-fact"
+      ],
+      "manifestos": [
+        "peer-authorities"
+      ]
+    },
+    {
+      "id": "never-edit-inside-a-submodule-path",
+      "level": "MUST_NOT",
+      "section": "S11",
+      "statement": "Edit files directly inside `apps/<app>` or `remote/deployments/<svc>`.",
+      "rationale": "it \"is easy to lose, bypasses that repo's own history, CI, and reviewers, and produces a pin nobody else can fetch.",
+      "source_lines": "L338–340",
+      "enforceable": true,
+      "verification": "assert no superproject commit touches files under a gitlink path",
+      "themes": [
+        "one-authority-per-fact"
+      ],
+      "manifestos": [
+        "peer-authorities"
+      ]
+    },
+    {
+      "id": "monorepo-config-is-the-submodule-manifest",
+      "level": "MUST",
+      "section": "S11",
+      "statement": "Treat a monorepo's `monorepo.config.json` as the manifest of expected submodules in `apps/`.",
+      "rationale": null,
+      "source_lines": "L342–343",
+      "enforceable": true,
+      "verification": "diff `monorepo.config.json` app list against `.gitmodules` paths",
+      "themes": [
+        "one-authority-per-fact"
+      ],
+      "manifestos": [
+        "peer-authorities"
+      ]
+    },
+    {
+      "id": "init-submodules-after-any-clone",
+      "level": "MUST",
+      "section": "S11",
+      "statement": "Run `git submodule update --init` after any clone; `git clone` does not populate submodules, so `apps/` and `remote/deployments/` will be empty, builds fail, and greps silently find nothing.",
+      "rationale": "This is the single most common way an agent misreads one of these repos.",
+      "source_lines": "L345–354",
+      "enforceable": true,
+      "verification": "assert no gitlink line is in the `-` (uninitialized) state before any build or search",
+      "themes": [
+        "invisible-state-is-the-enemy"
+      ],
+      "manifestos": [
+        "the-secondary-copy"
+      ]
+    },
+    {
+      "id": "prefer-non-recursive-submodule-init",
+      "level": "SHOULD",
+      "section": "S11",
+      "statement": "Prefer the non-recursive `git submodule update --init` for `*-monorepo` and `k8s-cluster`; use `--recursive` only when a submodule itself nests more.",
+      "rationale": "both are one level deep, and `--recursive` can drag in large third-party trees (e.g. tree-sitter grammars under forks).",
+      "source_lines": "L354–358",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": [
+        "the-secondary-copy"
+      ]
+    },
+    {
+      "id": "codes-audit-for-fleet-submodules",
+      "level": "MAY",
+      "section": "S11",
+      "statement": "Use `python3 ~/codes/codes_audit.py --push --submodules` to init/refresh submodules across every checkout under `~/codes` at once.",
+      "rationale": "That reports any repo whose submodules are uninitialized or drifted, checks them out, and never rebases, stashes, resets, or force-pushes.",
+      "source_lines": "L360–367",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": [
+        "the-secondary-copy"
+      ]
+    },
+    {
+      "id": "read-submodule-status-before-concluding",
+      "level": "MUST",
+      "section": "S11",
+      "statement": "Read `git submodule status` before you conclude anything, interpreting the leading flag: space = in sync, `-` = not initialized (directory empty), `+` = checked-out commit differs from the recorded pin, `U` = merge conflict on the gitlink.",
+      "rationale": null,
+      "source_lines": "L369–378",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "invisible-state-is-the-enemy",
+        "verify-the-thing-not-a-proxy-for-it"
+      ],
+      "manifestos": [
+        "evidence-over-assertion"
+      ]
+    },
+    {
+      "id": "pointer-drift-is-not-a-dirty-tree",
+      "level": "MUST_NOT",
+      "section": "S11",
+      "statement": "Treat `+` pointer drift as a dirty working tree and skip the repo; plain `git status` reporting ` M apps/<app>` is the gitlink pointing elsewhere, not an edit.",
+      "rationale": "that leaves the submodule permanently stale.",
+      "source_lines": "L380–394",
+      "enforceable": true,
+      "verification": "a fleet scanner must classify a repo dirty only via `git status --porcelain --ignore-submodules=all`",
+      "themes": [
+        "invisible-state-is-the-enemy",
+        "fix-the-root-cause-not-the-symptom"
+      ],
+      "manifestos": [
+        "the-secondary-copy"
+      ]
+    },
+    {
+      "id": "detect-real-edits-with-ignore-submodules",
+      "level": "MUST",
+      "section": "S11",
+      "statement": "Check for real uncommitted work with `git status --porcelain --ignore-submodules=all` and identify out-of-sync gitlinks with `git submodule status | grep -E '^[-+U]'`.",
+      "rationale": null,
+      "source_lines": "L385–390",
+      "enforceable": true,
+      "verification": "assert fleet scripts use the `--ignore-submodules=all` form",
+      "themes": [
+        "invisible-state-is-the-enemy"
+      ],
+      "manifestos": [
+        "the-secondary-copy"
+      ]
+    },
+    {
+      "id": "never-force-submodule-update",
+      "level": "MUST_NOT",
+      "section": "S11",
+      "statement": "Add `--force` to `git submodule update`.",
+      "rationale": "Without it, git refuses to overwrite uncommitted work inside a submodule; with it, that work is destroyed.",
+      "source_lines": "L396–397",
+      "enforceable": true,
+      "verification": "reject any `git submodule update` invocation containing `--force`",
+      "themes": [
+        "never-lose-work"
+      ],
+      "manifestos": [
+        "the-secondary-copy"
+      ]
+    },
+    {
+      "id": "push-the-submodule-before-the-superproject",
+      "level": "MUST",
+      "section": "S11",
+      "statement": "Push the submodule commit first, then add/commit/push the pin in the superproject.",
+      "rationale": "publishing a moved pin while the submodule commit exists only on your machine breaks every other clone with `fatal: remote error: upload-pack: not our ref <sha>`.",
+      "source_lines": "L399–415",
+      "enforceable": true,
+      "verification": "assert every recorded gitlink SHA is reachable on the submodule's remote (this is the `k8s-cluster` `pre-push` guard)",
+      "themes": [
+        "fix-the-root-cause-not-the-symptom"
+      ],
+      "manifestos": [
+        "the-secondary-copy"
+      ]
+    },
+    {
+      "id": "never-skip-the-submodule-push-guard",
+      "level": "MUST_NOT",
+      "section": "S11",
+      "statement": "Reach for `DD_SKIP_SUBMODULE_PUSH_GUARD=1`; if `.githooks/submodule-push-guard.sh` blocks you, \"the guard is right — go push the submodule.\"",
+      "rationale": null,
+      "source_lines": "L417–420",
+      "enforceable": true,
+      "verification": "assert the variable is never set in any script or CI env",
+      "themes": [
+        "fail-closed-and-typed"
+      ],
+      "manifestos": [
+        "fail-closed"
+      ]
+    },
+    {
+      "id": "gitlink-conflicts-resolve-in-the-source-repo",
+      "level": "MUST",
+      "section": "S11",
+      "statement": "Resolve a gitlink conflict by resolving the underlying conflict in the source repo and merging it there, then returning to the superproject to pin the resulting merged commit, and confirming the new pin is reachable on the submodule's remote before pushing.",
+      "rationale": "Picking a SHA is exactly the 'merely pick sides' failure the git merge section forbids; the pin is a claim about which code we deploy.",
+      "source_lines": "L422–432",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "merge-by-meaning-not-by-side"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "no-double-pinning-an-app",
+      "level": "MUST_NOT",
+      "section": "S11",
+      "statement": "Pin an app both through its org's `*-monorepo` and directly in `k8s-cluster`.",
+      "rationale": "One owner per app, or the two pins drift and it becomes ambiguous which commit actually ships.",
+      "source_lines": "L434–438",
+      "enforceable": true,
+      "verification": "assert no app path appears in both a monorepo `.gitmodules` and `k8s-cluster`'s",
+      "themes": [
+        "one-authority-per-fact"
+      ],
+      "manifestos": [
+        "peer-authorities"
+      ]
+    },
+    {
+      "id": "rewrite-gitmodules-urls-per-invocation",
+      "level": "MUST",
+      "section": "S11",
+      "statement": "When `.gitmodules` mixes SSH and HTTPS URLs and the machine has no SSH key, rewrite them for your own git invocations using `GIT_CONFIG_COUNT` / `GIT_CONFIG_KEY_n` / `GIT_CONFIG_VALUE_n` rather than mutating the user's global config.",
+      "rationale": "those vars \"are inherited by the child processes git spawns per submodule.",
+      "source_lines": "L440–454",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": [
+        "the-secondary-copy"
+      ]
+    },
+    {
+      "id": "use-shared-auth",
+      "level": "MUST",
+      "section": "S12",
+      "statement": "Use `github.com/shared-auth` for auth. · L458 · enforceable: **true** — dependency assertion.",
+      "rationale": null,
+      "source_lines": null,
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": [
+        "the-secondary-copy"
+      ]
+    },
+    {
+      "id": "use-opto-sync",
+      "level": "MUST",
+      "section": "S12",
+      "statement": "Use `github.com/opto-sync` for syncing data across devices/boundaries. · L459 · enforceable: **true** — dependency assertion.",
+      "rationale": null,
+      "source_lines": null,
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": [
+        "the-secondary-copy"
+      ]
+    },
+    {
+      "id": "use-ores-otel",
+      "level": "MUST",
+      "section": "S12",
+      "statement": "Use `github.com/ores-otel` for logging, telemetry and observability. · L460 · enforceable: **true** — dependency assertion.",
+      "rationale": null,
+      "source_lines": null,
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": [
+        "the-secondary-copy"
+      ]
+    },
+    {
+      "id": "use-zed-pkg",
+      "level": "MUST",
+      "section": "S12",
+      "statement": "Use `github.com/zed-pkg` for package/dependency management; it is \"our holistic homegrown answer to dep mgmt.\" · L461 · enforceable: **true** — assert `.zpkg.toml` present and a `.zpkg.lock` is tracked.",
+      "rationale": null,
+      "source_lines": null,
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": [
+        "the-secondary-copy"
+      ]
+    },
+    {
+      "id": "zpkg-scripts-accepts-only-test",
+      "level": "MUST_NOT",
+      "section": "S12",
+      "statement": "Put any key other than `test` in `.zpkg.toml` `[scripts]`, or a `[tasks]` table in the manifest.",
+      "rationale": "every other key \"fails `zed validate` with `unknown manifest field $.scripts.<key>`\" (verified against zed-cli v0.3.0, 2026-09-04).",
+      "source_lines": "L463–465",
+      "enforceable": true,
+      "verification": "`zed validate` exit code",
+      "themes": [
+        "fail-closed-and-typed"
+      ],
+      "manifestos": [
+        "fail-closed"
+      ]
+    },
+    {
+      "id": "tasks-live-in-a-schema-v2-env-plan",
+      "level": "MUST",
+      "section": "S12",
+      "statement": "Put project tasks in a schema-v2 environment plan at the repo root (`zed-env.toml`, `zed-env.json`, `.zed/environment.toml`, or `.zed/environment.json`), discovered by `zed task` by convention.",
+      "rationale": null,
+      "source_lines": "L466–481",
+      "enforceable": true,
+      "verification": "assert one of those files exists with `schema = 2` and `zed task list` succeeds",
+      "themes": [],
+      "manifestos": [
+        "the-secondary-copy"
+      ]
+    },
+    {
+      "id": "ci-runs-zed-task-check",
+      "level": "MUST",
+      "section": "S12",
+      "statement": "Have CI run `zed task list && zed task run check` after installing a checksum-pinned release of `zed`.",
+      "rationale": null,
+      "source_lines": "L482",
+      "enforceable": true,
+      "verification": "grep the workflow for those commands",
+      "themes": [],
+      "manifestos": [
+        "the-secondary-copy"
+      ]
+    },
+    {
+      "id": "verify-the-zed-release-checksum",
+      "level": "MUST",
+      "section": "S12",
+      "statement": "Install `zed` from the pinned GitHub release tarball and verify the `.sha256` sidecar (current pin: v0.3.0, sha256 `e380240c96242ab3b29e0e9d14c95ba946d086f20f0732e34d0e5cf47513efc7`); note `zpkg.tech` does not resolve.",
+      "rationale": null,
+      "source_lines": "L482",
+      "enforceable": true,
+      "verification": "assert the workflow checksums the download and matches the pinned digest",
+      "themes": [
+        "verify-the-thing-not-a-proxy-for-it"
+      ],
+      "manifestos": [
+        "evidence-over-assertion"
+      ]
+    },
+    {
+      "id": "package-repository-is-required",
+      "level": "MUST",
+      "section": "S12",
+      "statement": "Set `[package.repository]` in `.zpkg.toml`.",
+      "rationale": null,
+      "source_lines": "L483",
+      "enforceable": true,
+      "verification": "manifest field presence",
+      "themes": [],
+      "manifestos": [
+        "the-secondary-copy"
+      ]
+    },
+    {
+      "id": "no-conflicting-targets-repository-name",
+      "level": "MUST_NOT",
+      "section": "S12",
+      "statement": "Give a whole-repository `[targets.repository]` a `name` that differs from the canonical package name; omit `name`.",
+      "rationale": null,
+      "source_lines": "L483",
+      "enforceable": true,
+      "verification": "manifest field comparison",
+      "themes": [],
+      "manifestos": [
+        "the-secondary-copy"
+      ]
+    },
+    {
+      "id": "support-dart-rust-typescript",
+      "level": "MUST",
+      "section": "S12",
+      "statement": "Support at least dart, rust and typescript, since most of our own runtimes are those three.",
+      "rationale": null,
+      "source_lines": "L486",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": [
+        "the-secondary-copy"
+      ]
+    },
+    {
+      "id": "json-schema-enforces-contracts",
+      "level": "MUST",
+      "section": "S12",
+      "statement": "Use JSON Schema to enforce interfaces/contracts, whether internal or external.",
+      "rationale": null,
+      "source_lines": "L486",
+      "enforceable": true,
+      "verification": "assert a schema artifact exists for each published interface",
+      "themes": [
+        "fail-closed-and-typed"
+      ],
+      "manifestos": [
+        "fail-closed"
+      ]
+    },
+    {
+      "id": "rust-on-the-backend",
+      "level": "SHOULD",
+      "section": "S12",
+      "statement": "On the backend, usually choose Rust.",
+      "rationale": null,
+      "source_lines": "L486",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": [
+        "the-secondary-copy"
+      ]
+    },
+    {
+      "id": "typescript-or-flutter-on-the-client",
+      "level": "SHOULD",
+      "section": "S12",
+      "statement": "For the client, choose either TypeScript or Flutter/Dart.",
+      "rationale": null,
+      "source_lines": "L486",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": [
+        "the-secondary-copy"
+      ]
+    },
+    {
+      "id": "never-react-or-jsx",
+      "level": "MUST_NOT",
+      "section": "S12",
+      "statement": "Use React or JSX anywhere.",
+      "rationale": null,
+      "source_lines": "L486, L518",
+      "enforceable": true,
+      "verification": "assert no `react`/`react-dom` dependency and no `.jsx`/`.tsx` React usage in any repo",
+      "themes": [],
+      "manifestos": [
+        "the-secondary-copy"
+      ]
+    },
+    {
+      "id": "rx-libraries-permitted",
+      "level": "MAY",
+      "section": "S12",
+      "statement": "Use RxDart and RxJS/RxTS.",
+      "rationale": null,
+      "source_lines": "L486",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": [
+        "the-secondary-copy"
+      ]
+    },
+    {
+      "id": "internal-apis-in-three-languages-only",
+      "level": "MUST",
+      "section": "S12",
+      "statement": "Write internal APIs in dart, typescript or rust only.",
+      "rationale": null,
+      "source_lines": "L486",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": [
+        "the-secondary-copy"
+      ]
+    },
+    {
+      "id": "external-sdks-may-use-other-languages",
+      "level": "MAY",
+      "section": "S12",
+      "statement": "Publish external SDKs, APIs and libs in other languages.",
+      "rationale": null,
+      "source_lines": "L486",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": [
+        "the-secondary-copy"
+      ]
+    },
+    {
+      "id": "sibling-test-org-per-org",
+      "level": "MUST",
+      "section": "S13–14",
+      "statement": "Almost always maintain a sibling `*-test` GitHub org for each org (e.g. `opto-sync` / `opto-sync-test`, `fiducia-cloud` / `fiducia-cloud-test`, `cliptown` / `cliptown-test`).",
+      "rationale": null,
+      "source_lines": "L489–496",
+      "enforceable": true,
+      "verification": "assert a `<org>-test` org exists per product org",
+      "themes": [
+        "one-to-one-topology-and-canonical-shape"
+      ],
+      "manifestos": [
+        "one-to-one-all-the-way-down"
+      ]
+    },
+    {
+      "id": "use-test-org-for-external-testing-and-minutes",
+      "level": "MUST",
+      "section": "S13–14",
+      "statement": "Use the test org to mimic external (end-user) testing, or to get more GitHub Actions minutes, since we are on budget for GHA.",
+      "rationale": null,
+      "source_lines": "L496, L884",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": [
+        "test-orgs-are-real-users"
+      ]
+    },
+    {
+      "id": "preserve-the-declative-migrations-test-name",
+      "level": "MUST_NOT",
+      "section": "S13–14",
+      "statement": "\"Correct\" `declative-migrations-test` to `declarative-migrations-test` when cloning or opening PRs; the misspelling \"is the real sibling org name as created.\"",
+      "rationale": null,
+      "source_lines": "L493, L498–499",
+      "enforceable": true,
+      "verification": "allowlist that exact org name and reject the corrected spelling",
+      "themes": [
+        "one-to-one-topology-and-canonical-shape"
+      ],
+      "manifestos": [
+        "one-to-one-all-the-way-down"
+      ]
+    },
+    {
+      "id": "canonical-repo-name-set",
+      "level": "SHOULD",
+      "section": "S13–14",
+      "statement": "Give most GitHub orgs repos matching the canonical set: `*-clients`, `*-sync`, `*-infra`, `*-monorepo`, `*-cli`, `*-interfaces`, `*-web-server.rs`, `*-api-server.rs`, `*-admin-web-server.rs`, `*-admin-api-server.rs`, `*-lib-core`, `*-orm-core`, `*-flutter`, `*-desktop-app.rs`, `*-e2e`, `*-daemon.rs`, `*-mcp-server.rs`, `*-sidecar.rs`, `*-docs`.",
+      "rationale": null,
+      "source_lines": "L501–526, worked examples for `honeypot-r-us` (L537–551) and `ecma-d` (L552–566)",
+      "enforceable": true,
+      "verification": "per-org repo-name coverage report",
+      "themes": [
+        "one-to-one-topology-and-canonical-shape"
+      ],
+      "manifestos": [
+        "one-to-one-all-the-way-down"
+      ]
+    },
+    {
+      "id": "asterisk-is-the-org-prefix",
+      "level": "MUST",
+      "section": "S13–14",
+      "statement": "Read the asterisk in front of repo names as a wildcard matching the org name or an abbreviation of it (e.g. `hnpt-` for `honeypot-r-us`, `ecmad-` for `ecma-d`).",
+      "rationale": null,
+      "source_lines": "L525–526",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "one-to-one-topology-and-canonical-shape"
+      ],
+      "manifestos": [
+        "one-to-one-all-the-way-down"
+      ]
+    },
+    {
+      "id": "clients-repo-holds-15-plus-languages",
+      "level": "MUST",
+      "section": "S13–14",
+      "statement": "Give `*-clients` a `clients/` subfolder containing 15+ languages for both internal and external SDKs/libs.",
+      "rationale": null,
+      "source_lines": "L505, L542, L559",
+      "enforceable": true,
+      "verification": "count language subdirectories under `clients/`",
+      "themes": [],
+      "manifestos": [
+        "test-orgs-are-real-users"
+      ]
+    },
+    {
+      "id": "interfaces-repo-is-types-only",
+      "level": "MUST_NOT",
+      "section": "S13–14",
+      "statement": "Put bodies or implementations in `*-interfaces`; it holds shared multi-language types/interfaces only.",
+      "rationale": null,
+      "source_lines": "L510, L547, L564",
+      "enforceable": true,
+      "verification": "AST check that exported symbols carry no function bodies",
+      "themes": [],
+      "manifestos": [
+        "test-orgs-are-real-users"
+      ]
+    },
+    {
+      "id": "admin-web-server-has-no-public-ingress",
+      "level": "MUST",
+      "section": "S13–14",
+      "statement": "Run `*-admin-web-server.rs` on the admin VPC for super-admins only, with no public ingress.",
+      "rationale": null,
+      "source_lines": "L513",
+      "enforceable": true,
+      "verification": "assert no public Ingress/route targets the admin web server",
+      "themes": [],
+      "manifestos": [
+        "test-orgs-are-real-users"
+      ]
+    },
+    {
+      "id": "admin-db-is-unreachable-from-product",
+      "level": "MUST",
+      "section": "S13–14",
+      "statement": "Give `*-admin-api-server.rs` write access to the admin RDS and ensure product web/api cannot reach that DB.",
+      "rationale": null,
+      "source_lines": "L514",
+      "enforceable": true,
+      "verification": "network-policy and connection-string assertion",
+      "themes": [],
+      "manifestos": [
+        "test-orgs-are-real-users"
+      ]
+    },
+    {
+      "id": "lib-core-owns-orm-and-migrations",
+      "level": "MUST",
+      "section": "S13–14",
+      "statement": "Make `*-lib-core` the main source of truth for db migrations so it can be shared between the web server and api server (see `github.com/declarative-migrations`).",
+      "rationale": null,
+      "source_lines": "L515, L565",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "one-authority-per-fact"
+      ],
+      "manifestos": [
+        "peer-authorities"
+      ]
+    },
+    {
+      "id": "orm-core-is-the-opaque-seaorm-boundary",
+      "level": "MUST",
+      "section": "S13–14",
+      "statement": "Share the opaque SeaORM / migration boundary across web, api and admin servers via `*-orm-core`, distributed with zed-pkg.",
+      "rationale": null,
+      "source_lines": "L516",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": [
+        "test-orgs-are-real-users"
+      ]
+    },
+    {
+      "id": "desktop-app-never-react-never-webviews",
+      "level": "MUST_NOT",
+      "section": "S13–14",
+      "statement": "Use React or webviews in the Rust desktop app; FFI to a different UI layer is acceptable.",
+      "rationale": null,
+      "source_lines": "L518",
+      "enforceable": true,
+      "verification": "assert no webview crate dependency",
+      "themes": [],
+      "manifestos": [
+        "test-orgs-are-real-users"
+      ]
+    },
+    {
+      "id": "mcp-server-inherits-the-shared-base",
+      "level": "SHOULD",
+      "section": "S13–14",
+      "statement": "Have `*-mcp-server.rs` borrow/inherit from the `github.com/oresoftware/*mcp-server*` base; the same applies to `*-sidecar.rs`.",
+      "rationale": null,
+      "source_lines": "L521–522",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": [
+        "test-orgs-are-real-users"
+      ]
+    },
+    {
+      "id": "monorepo-holds-only-k8s-deployable-apps",
+      "level": "MUST",
+      "section": "S13–14",
+      "statement": "Put only k8s-deployable apps in `*-monorepo`'s `apps/` — not `*-infra`, `*-cli`, or `*-flutter`.",
+      "rationale": null,
+      "source_lines": "L558",
+      "enforceable": true,
+      "verification": "cross-check `apps/` submodule names against the excluded suffixes",
+      "themes": [],
+      "manifestos": [
+        "test-orgs-are-real-users"
+      ]
+    },
+    {
+      "id": "four-web-api-interaction-modes",
+      "level": "MUST",
+      "section": "S13–14",
+      "statement": "Make the API and web servers able to interact in all four ways: (1) web server direct db query, (2) stateless HTTP to the api server cluster, (3) stateful TCP connection to the api server cluster, (4) NATS/MQ message with fully async api-server response.",
+      "rationale": "reads \"are pretty safe\" so the web server can skip the api server; NATS intermediaries live in `oresoftware/k8s-cluster`.",
+      "source_lines": "L528–532",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": [
+        "test-orgs-are-real-users"
+      ]
+    },
+    {
+      "id": "web-server-uses-orm-but-not-migrations",
+      "level": "MUST_NOT",
+      "section": "S13–14",
+      "statement": "Let the web server use the ORM for migrations; it may use the ORM for direct queries.",
+      "rationale": null,
+      "source_lines": "L529",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": [
+        "test-orgs-are-real-users"
+      ]
+    },
+    {
+      "id": "shared-auth-uses-dual-supabase-auth",
+      "level": "MUST",
+      "section": "S15",
+      "statement": "Use `shared-auth` for authentication, which uses dual auth with Supabase. · L571 · enforceable: false.",
+      "rationale": null,
+      "source_lines": null,
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "stream-otel-logs-to-supabase",
+      "level": "MUST",
+      "section": "S15",
+      "statement": "Use Supabase for streaming logs to, from `ores-otel`. · L571 · enforceable: false.",
+      "rationale": null,
+      "source_lines": null,
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "postgres-default-cockroach-distributed-redis-cache",
+      "level": "MUST",
+      "section": "S15",
+      "statement": "Use Postgres for most persistence, CockroachDB where a distributed database is wanted, and Redis for caching. · L572 · enforceable: false.",
+      "rationale": null,
+      "source_lines": null,
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "client-side-storage-indexeddb-sqlite",
+      "level": "MAY",
+      "section": "S15",
+      "statement": "Use IndexedDB and SQLite on clients for storage. · L572 · enforceable: false.",
+      "rationale": null,
+      "source_lines": null,
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "r2-not-s3",
+      "level": "MUST",
+      "section": "S15",
+      "statement": "Use Cloudflare R2 instead of S3 for most files/artifacts. · L572 · enforceable: **true** — assert no AWS S3 endpoint in deployment config.",
+      "rationale": null,
+      "source_lines": null,
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "modularize-not-main-files",
+      "level": "MUST",
+      "section": "S16",
+      "statement": "Modularize Rust, TypeScript and Dart; not everything belongs in `main.rs`, `main.ts` and `main.dart`.",
+      "rationale": null,
+      "source_lines": "L577",
+      "enforceable": true,
+      "verification": "a line-count / symbol-count ceiling on entrypoint files",
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "follow-functional-principles",
+      "level": "MUST",
+      "section": "S16",
+      "statement": "Follow functional coding principles: fewer side effects (more pure functions) and more immutability (immutable variables) — namely explicit inputs, explicit outputs, immutable values, pure transformations, typed errors, explicit state transitions, composition, effects pushed outward, and illegal states excluded by types.",
+      "rationale": null,
+      "source_lines": "L577, L579–589",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "fail-closed-and-typed"
+      ],
+      "manifestos": [
+        "fail-closed"
+      ]
+    },
+    {
+      "id": "oop-permitted-for-stateful-code",
+      "level": "MAY",
+      "section": "S16",
+      "statement": "Use classes and OOP where they make more sense — stateful apps like the client, or stateful servers like websockets and TCP connections — while still adhering to functional programming more than usual.",
+      "rationale": null,
+      "source_lines": "L577",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "favor-exhaustive-matching-and-formal-methods",
+      "level": "SHOULD",
+      "section": "S16",
+      "statement": "Favor exhaustive pattern matching and use formal-methods checking too.",
+      "rationale": null,
+      "source_lines": "L577",
+      "enforceable": true,
+      "verification": "compiler/linter setting rejecting non-exhaustive matches and wildcard arms",
+      "themes": [
+        "fail-closed-and-typed"
+      ],
+      "manifestos": [
+        "fail-closed"
+      ]
+    },
+    {
+      "id": "favor-composability-and-reuse",
+      "level": "SHOULD",
+      "section": "S16",
+      "statement": "Favor composability and re-use; create more utility functions and routines for shared use.",
+      "rationale": null,
+      "source_lines": "L577",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "medium-dry",
+      "level": "SHOULD",
+      "section": "S16",
+      "statement": "Follow a medium level of D.R.Y. — repeat yourself a medium amount, not too much and not too little.",
+      "rationale": null,
+      "source_lines": "L577",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "chaining-is-fine",
+      "level": "MAY",
+      "section": "S16",
+      "statement": "Use method chaining (immutable, though mutable with classes is acceptable for performance) and pipe-operator chaining in languages like Gleam.",
+      "rationale": null,
+      "source_lines": "L577",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "use-an-authenticated-github-path",
+      "level": "MUST",
+      "section": "S17",
+      "statement": "Use the available authenticated GitHub path to create repos, push commits, open PRs, or call the API; credentials are not shared across tools unless we wire them.",
+      "rationale": null,
+      "source_lines": "L594–596",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "github-failover-order",
+      "level": "MUST",
+      "section": "S17",
+      "statement": "On failure, switch paths in this order (or in parallel): (1) `gh` CLI, (2) `git` over SSH, (3) `git` over HTTPS with PAT/credential helper, (4) REST/GraphQL via `curl`/`gh api`, (5) GitHub MCP stdio server, (6) interactive reauth or a task-scoped credential — and stop if neither of the last is available.",
+      "rationale": null,
+      "source_lines": "L596–604",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "remote-or-it-did-not-happen"
+      ],
+      "manifestos": [
+        "work-does-not-sit-locally"
+      ]
+    },
+    {
+      "id": "keep-oresoftware-active-when-both-logged-in",
+      "level": "MUST",
+      "section": "S17",
+      "statement": "Keep ORESoftware the active `gh` account when both identities are logged in.",
+      "rationale": null,
+      "source_lines": "L606–607",
+      "enforceable": true,
+      "verification": "`gh auth status` active-account check",
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "no-pats-in-configs-instructions-logs-or-messages",
+      "level": "MUST_NOT",
+      "section": "S17",
+      "statement": "Paste PATs into git-tracked MCP configs, repository instructions, chat logs, or commit messages.",
+      "rationale": null,
+      "source_lines": "L609–610, L824",
+      "enforceable": true,
+      "verification": "secret scan of tracked MCP JSON/TOML, instruction files, and commit messages",
+      "themes": [
+        "credentials-never-touch-the-repo-or-the-transcript"
+      ],
+      "manifestos": [
+        "secrets-have-one-home"
+      ]
+    },
+    {
+      "id": "probe-the-exact-path-you-will-use",
+      "level": "MUST",
+      "section": "S17",
+      "statement": "Test the path you are about to use; a green MCP `namespaceStatus: ready` is not proof of auth, a successful `gh auth status` is not proof MCP has a token, and a working SSH push is not proof `gh api` works.",
+      "rationale": null,
+      "source_lines": "L623–625, L825",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "verify-the-thing-not-a-proxy-for-it"
+      ],
+      "manifestos": [
+        "evidence-over-assertion"
+      ]
+    },
+    {
+      "id": "expect-oresoftware-from-gh-api-user",
+      "level": "MUST",
+      "section": "S17",
+      "statement": "Expect `gh api user --jq .login` to return `ORESoftware`.",
+      "rationale": null,
+      "source_lines": "L632",
+      "enforceable": true,
+      "verification": "the exact command's output",
+      "themes": [
+        "verify-the-thing-not-a-proxy-for-it"
+      ],
+      "manifestos": [
+        "evidence-over-assertion"
+      ]
+    },
+    {
+      "id": "never-print-the-token",
+      "level": "MUST_NOT",
+      "section": "S17",
+      "statement": "Print the keyring token into chat; use `gh auth token >/dev/null`.",
+      "rationale": null,
+      "source_lines": "L633",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "credentials-never-touch-the-repo-or-the-transcript"
+      ],
+      "manifestos": [
+        "secrets-have-one-home"
+      ]
+    },
+    {
+      "id": "gh-for-prs-issues-api-repos-releases-checks",
+      "level": "MUST",
+      "section": "S17",
+      "statement": "Use `gh` for `pr create`, `pr view`, `issue`, `api`, `repo create`, `release`, and checks.",
+      "rationale": null,
+      "source_lines": "L643",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "resolve-gh-on-gui-spawned-path",
+      "level": "MUST",
+      "section": "S17",
+      "statement": "When `gh` is missing from a GUI-spawned agent's PATH (common on macOS), call `/opt/homebrew/bin/gh` or prepend Homebrew to PATH.",
+      "rationale": null,
+      "source_lines": "L644–645, L811",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "unset-placeholder-github-token-vars",
+      "level": "MUST",
+      "section": "S17",
+      "statement": "Unset or replace an empty or placeholder (`from-env`) `GH_TOKEN`/`GITHUB_TOKEN`, because they override the keyring and break `gh` the same way they break MCP.",
+      "rationale": null,
+      "source_lines": "L647–649, L810",
+      "enforceable": true,
+      "verification": "assert neither variable equals `\"\"` or `from-env` in the process environment",
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "use-the-configured-ssh-identity",
+      "level": "MUST_NOT",
+      "section": "S17",
+      "statement": "Invent a new SSH identity; use the keys and `~/.ssh/config` host aliases (`Host github.com`, `IdentityFile`, `IdentitiesOnly yes`) that are already configured.",
+      "rationale": null,
+      "source_lines": "L667–669",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "https-username-is-the-github-login",
+      "level": "MUST",
+      "section": "S17",
+      "statement": "When using a PAT as the HTTPS password, the username is the GitHub user (`ORESoftware`), not the email.",
+      "rationale": null,
+      "source_lines": "L682–683",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "never-persist-a-pat-in-git-config-or-remote",
+      "level": "MUST_NOT",
+      "section": "S17",
+      "statement": "Write a PAT into `.git/config`, a repo-local remote URL, a command argument, or this file.",
+      "rationale": null,
+      "source_lines": "L683–684",
+      "enforceable": true,
+      "verification": "scan `.git/config` and remote URLs for embedded credentials",
+      "themes": [
+        "credentials-never-touch-the-repo-or-the-transcript"
+      ],
+      "manifestos": [
+        "secrets-have-one-home"
+      ]
+    },
+    {
+      "id": "no-from-env-in-mcp-config",
+      "level": "MUST_NOT",
+      "section": "S17",
+      "statement": "Leave `\"GITHUB_PERSONAL_ACCESS_TOKEN\": \"from-env\"` in Cursor, Claude Code, or Codex MCP config.",
+      "rationale": "`from-env` is not interpolated. `namespaceStatus: ready` still happens because the process started. Tool calls then fail with `MCP error -32603: Authentication Failed: Bad credentials`.",
+      "source_lines": "L705–723, L823",
+      "enforceable": true,
+      "verification": "grep MCP configs for the literal",
+      "themes": [
+        "credentials-never-touch-the-repo-or-the-transcript"
+      ],
+      "manifestos": [
+        "secrets-have-one-home"
+      ]
+    },
+    {
+      "id": "mcp-launcher-injects-the-real-token",
+      "level": "MUST",
+      "section": "S17",
+      "statement": "Use a launcher script that copies `gh auth token` into the environment the MCP process actually sees, rather than putting a PAT in the JSON.",
+      "rationale": null,
+      "source_lines": "L721–761",
+      "enforceable": true,
+      "verification": "assert MCP server entries invoke the launcher, not `npx` with an env token",
+      "themes": [
+        "credentials-never-touch-the-repo-or-the-transcript"
+      ],
+      "manifestos": [
+        "secrets-have-one-home"
+      ]
+    },
+    {
+      "id": "one-launcher-one-token-source",
+      "level": "MUST",
+      "section": "S17",
+      "statement": "Reuse the same `~/.cursor/github-mcp.sh` launcher from Claude Code and Codex MCP configs so there is one token source; do not duplicate a PAT.",
+      "rationale": null,
+      "source_lines": "L724–725, L777–796",
+      "enforceable": true,
+      "verification": "assert all three configs point at the same script path",
+      "themes": [
+        "one-authority-per-fact"
+      ],
+      "manifestos": [
+        "peer-authorities"
+      ]
+    },
+    {
+      "id": "launcher-unsets-placeholder-vars",
+      "level": "MUST",
+      "section": "S17",
+      "statement": "Have the launcher unset `GITHUB_PERSONAL_ACCESS_TOKEN`, `GH_TOKEN` and `GITHUB_TOKEN` when they are empty or `from-env`.",
+      "rationale": "those override `gh auth token` and make it echo the placeholder.",
+      "source_lines": "L725–727, L738–758",
+      "enforceable": true,
+      "verification": "inspect the launcher for the placeholder guard",
+      "themes": [
+        "credentials-never-touch-the-repo-or-the-transcript"
+      ],
+      "manifestos": [
+        "secrets-have-one-home"
+      ]
+    },
+    {
+      "id": "reload-mcp-after-changing-env",
+      "level": "MUST",
+      "section": "S17",
+      "statement": "Reload or restart MCP after fixing the environment; \"a live stdio process keeps the old bad env until it is restarted.\"",
+      "rationale": null,
+      "source_lines": "L774–775, L809",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "verify-mcp-with-a-tool-call",
+      "level": "MUST",
+      "section": "S17",
+      "statement": "Verify MCP with an actual tool call, not `ready`: searching users/repos should return `ORESoftware` and private repos you can already see with `gh`. The stderr banner `GitHub MCP Server running on stdio` is normal, not an auth failure.",
+      "rationale": null,
+      "source_lines": "L798–801",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "verify-the-thing-not-a-proxy-for-it"
+      ],
+      "manifestos": [
+        "evidence-over-assertion"
+      ]
+    },
+    {
+      "id": "api-owner-is-the-login-not-the-url",
+      "level": "MUST",
+      "section": "S17",
+      "statement": "Use `ORESoftware` (the login) as the API `owner`, even when the human says `github.com/oresoftware`.",
+      "rationale": null,
+      "source_lines": "L801–802",
+      "enforceable": true,
+      "verification": "assert API calls use the login casing/value",
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "codex-sandbox-must-allow-gh-npx-ssh",
+      "level": "MUST",
+      "section": "S17",
+      "statement": "Configure the Codex sandbox to allow `gh`, `npx`, and `~/.ssh` / keyring access.",
+      "rationale": null,
+      "source_lines": "L788–789",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "follow-the-failover-table",
+      "level": "MUST",
+      "section": "S17",
+      "statement": "Follow the documented failure→next-path table (MCP `Bad credentials` → fix launcher or use `gh`+`git`; MCP `Not connected` → reload, meanwhile `gh`/SSH/HTTPS; `from-env` → unset and rerun; `gh` not on PATH → Homebrew path or HTTPS curl; wrong account → `gh auth switch` or SSH or PAT; HTTPS auth failed → `git remote set-url` to SSH; SSH denied → HTTPS + `gh auth setup-git`; API 401 → refresh token, do not keep retrying `from-env`; protected-branch decline → feature branch and PR, no force-push).",
+      "rationale": null,
+      "source_lines": "L804–816",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "landing-must-happen-even-if-mcp-is-down",
+      "level": "MUST",
+      "section": "S17",
+      "statement": "Push, create repos, and open PRs even if MCP is down, via `git push` (SSH or HTTPS) plus `gh pr create`, or the GitHub API via `curl`. \"Figure it out.\"",
+      "rationale": null,
+      "source_lines": "L818–819",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "remote-or-it-did-not-happen"
+      ],
+      "manifestos": [
+        "work-does-not-sit-locally"
+      ]
+    },
+    {
+      "id": "never-stop-after-one-failed-method",
+      "level": "MUST_NOT",
+      "section": "S17",
+      "statement": "Stop after a single failed method, or treat one healthy probe (`gh auth status`, MCP `ready`, or `ssh -T`) as proof of all paths.",
+      "rationale": null,
+      "source_lines": "L825–826",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "remote-or-it-did-not-happen"
+      ],
+      "manifestos": [
+        "work-does-not-sit-locally"
+      ]
+    },
+    {
+      "id": "never-unable-to-reach-linear",
+      "level": "MUST",
+      "section": "S18",
+      "statement": "Treat inability to read or update Linear as never acceptable — same rule as GitHub.",
+      "rationale": null,
+      "source_lines": "L830–831, L856",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "remote-or-it-did-not-happen"
+      ],
+      "manifestos": [
+        "work-does-not-sit-locally"
+      ]
+    },
+    {
+      "id": "linear-is-authoritative-for-scope",
+      "level": "MUST",
+      "section": "S18",
+      "statement": "Treat Linear as authoritative for scope, priority, status, ownership, and acceptance criteria.",
+      "rationale": null,
+      "source_lines": "L831–832",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "one-authority-per-fact"
+      ],
+      "manifestos": [
+        "peer-authorities"
+      ]
+    },
+    {
+      "id": "github-is-authoritative-for-code-state",
+      "level": "MUST",
+      "section": "S18",
+      "statement": "Treat GitHub as authoritative for branches, commits, CI, reviews, and merge state.",
+      "rationale": null,
+      "source_lines": "L832–833",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "one-authority-per-fact"
+      ],
+      "manifestos": [
+        "peer-authorities"
+      ]
+    },
+    {
+      "id": "surface-disagreement-never-silently-pick",
+      "level": "MUST_NOT",
+      "section": "S18",
+      "statement": "Silently pick one when Linear and GitHub disagree; say so.",
+      "rationale": null,
+      "source_lines": "L833",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "one-authority-per-fact"
+      ],
+      "manifestos": [
+        "peer-authorities"
+      ]
+    },
+    {
+      "id": "linear-path-order",
+      "level": "MUST",
+      "section": "S18",
+      "statement": "Use Linear paths in this order (or in parallel): (1) Linear MCP HTTP OAuth (`https://mcp.linear.app/mcp`, `.../readonly`), (2) Linear MCP stdio (`@sylphx/linear-mcp` or similar) only if `LINEAR_API_KEY` is a real key, (3) Linear GraphQL at `https://api.linear.app/graphql`.",
+      "rationale": null,
+      "source_lines": "L835–843",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "remote-or-it-did-not-happen"
+      ],
+      "manifestos": [
+        "work-does-not-sit-locally"
+      ]
+    },
+    {
+      "id": "prefer-readonly-linear-mcp-for-audits",
+      "level": "SHOULD",
+      "section": "S18",
+      "statement": "Prefer the readonly Linear MCP endpoint for audits.",
+      "rationale": null,
+      "source_lines": "L838",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "linear-web-ui-is-for-humans",
+      "level": "MUST_NOT",
+      "section": "S18",
+      "statement": "Use the Linear web UI as an agent; agents use paths 1–3.",
+      "rationale": null,
+      "source_lines": "L843",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "linear-api-key-not-from-env",
+      "level": "MUST",
+      "section": "S18",
+      "statement": "Unset or replace `LINEAR_API_KEY=from-env`; it is the same bug class as the GitHub MCP placeholder.",
+      "rationale": null,
+      "source_lines": "L840, L845–846",
+      "enforceable": true,
+      "verification": "assert the variable is not the literal `from-env`",
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "no-linear-token-in-committed-mcp-json",
+      "level": "MUST_NOT",
+      "section": "S18",
+      "statement": "Paste the Linear token into committed MCP JSON.",
+      "rationale": null,
+      "source_lines": "L846",
+      "enforceable": true,
+      "verification": "secret scan of tracked MCP configs for `lin_api_` prefixes",
+      "themes": [
+        "credentials-never-touch-the-repo-or-the-transcript"
+      ],
+      "manifestos": [
+        "secrets-have-one-home"
+      ]
+    },
+    {
+      "id": "no-destructive-linear-actions-unnamed",
+      "level": "MUST_NOT",
+      "section": "S18",
+      "statement": "Delete, archive, cancel, or close a Linear issue without the human naming that action.",
+      "rationale": null,
+      "source_lines": "L848–849",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "no-linear-done-without-a-merged-pr",
+      "level": "MUST_NOT",
+      "section": "S18",
+      "statement": "Close a Linear issue whose PR is unmerged and call it Done.",
+      "rationale": null,
+      "source_lines": "L849–850, L988",
+      "enforceable": true,
+      "verification": "assert every issue moved to Done has an associated merged PR",
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "search-before-creating-and-prefer-relating",
+      "level": "MUST",
+      "section": "S18",
+      "statement": "Search before creating an issue, and prefer relating (`related`, `duplicate`, `blocked by`) over opening a second issue.",
+      "rationale": null,
+      "source_lines": "L850–851",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "report-which-linear-path-failed",
+      "level": "MUST",
+      "section": "S18",
+      "statement": "If GraphQL fails, say which path you tried and which error you got — then try the other path.",
+      "rationale": "A green Linear MCP `namespaceStatus: ready` is not proof of auth.",
+      "source_lines": "L854–856",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "verify-the-thing-not-a-proxy-for-it"
+      ],
+      "manifestos": [
+        "evidence-over-assertion"
+      ]
+    },
+    {
+      "id": "publish-the-plan-before-coding",
+      "level": "MUST",
+      "section": "S19",
+      "statement": "Before coding, publish the plan in Linear (a comment on the existing issue when appropriate) and in a GitHub issue.",
+      "rationale": "Agents can lose work when they use destructive Git operations or start implementation without leaving a durable plan.",
+      "source_lines": "L859–864",
+      "enforceable": true,
+      "verification": "assert a plan comment/issue exists before the first commit on the branch",
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "preserve-before-switching-tasks",
+      "level": "MUST",
+      "section": "S19",
+      "statement": "Preserve working changes by committing explicit paths on a scratch or feature branch before switching tasks.",
+      "rationale": null,
+      "source_lines": "L864–865",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "never-lose-work"
+      ],
+      "manifestos": []
+    },
+    {
+      "id": "no-destructive-git-as-a-shortcut",
+      "level": "MUST_NOT",
+      "section": "S19",
+      "statement": "Use `git stash`, `git reset`, rebase, or force-push as a shortcut.",
+      "rationale": null,
+      "source_lines": "L865–866",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "salvage-policy-applies-to-every-org",
+      "level": "MUST",
+      "section": "S20",
+      "statement": "Apply this section to every GitHub org we own: product orgs, sibling `*-test` orgs, and the `ORESoftware` user namespace.",
+      "rationale": null,
+      "source_lines": "L870",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "try-to-green-every-red-pr",
+      "level": "MUST",
+      "section": "S20",
+      "statement": "When CI on an open PR is red instead of green, try to get it green.",
+      "rationale": null,
+      "source_lines": "L870, L875–876",
+      "enforceable": true,
+      "verification": "enumerate open PRs whose latest status rollup is `FAILURE`/`ERROR` and assert an intervention exists",
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "never-discard-a-branch-without-salvage",
+      "level": "MUST_NOT",
+      "section": "S20",
+      "statement": "Discard a branch without salvage, even when a comment is allowed instead of fully resurrecting the PR.",
+      "rationale": "the recorded failure was an agent concluding \"Theirs is better than ours on the central point\" — \"never discard whole branches in favor of others - make sure to take the good parts even from branches that are otherwise outmoded.",
+      "source_lines": "L870, L873",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "never-lose-work",
+        "salvage-before-closure"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "diagnose-from-the-job-log",
+      "level": "MUST",
+      "section": "S20",
+      "statement": "Diagnose the failure from the job log, not from the title.",
+      "rationale": null,
+      "source_lines": "L878",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "verify-the-thing-not-a-proxy-for-it",
+        "fix-the-root-cause-not-the-symptom"
+      ],
+      "manifestos": [
+        "evidence-over-assertion"
+      ]
+    },
+    {
+      "id": "fix-real-failures-by-merging-main-in",
+      "level": "MUST",
+      "section": "S20",
+      "statement": "For a real test/type/lint/contract failure, fix the PR: merge `origin/main` into the PR branch with a merge commit (not rebase), resolve conflicts semantically with at least 5 commits of history, push, and re-run checks.",
+      "rationale": null,
+      "source_lines": "L879–880",
+      "enforceable": true,
+      "verification": "assert the integration commit is a merge commit, not a rewritten history",
+      "themes": [
+        "merge-by-meaning-not-by-side"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "merge-main-in-for-dirty-conflicts",
+      "level": "MUST",
+      "section": "S20",
+      "statement": "For a merge conflict / `DIRTY` PR, merge main in; do not rebase, do not stash.",
+      "rationale": null,
+      "source_lines": "L880–881",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "merge-by-meaning-not-by-side"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "budget-blocked-is-not-a-code-defect",
+      "level": "MUST_NOT",
+      "section": "S20",
+      "statement": "Attempt code changes, close the PR, or touch billing yourself when a check is budget-blocked (GHA minutes exhausted, spending limit reached, or a failed account payment — the job never starts, dies in seconds with no steps, annotated \"The job was not started because recent account payments have failed or your spending limit needs to be increased\").",
+      "rationale": null,
+      "source_lines": "L881",
+      "enforceable": true,
+      "verification": "match that annotation string and classify before attempting a fix",
+      "themes": [
+        "fix-the-root-cause-not-the-symptom"
+      ],
+      "manifestos": []
+    },
+    {
+      "id": "budget-blocked-comment-and-escalate",
+      "level": "MUST",
+      "section": "S20",
+      "statement": "Comment that the check is budget-blocked, move unique work to a salvage PR or a `*-test` org that still has minutes, tell the human which orgs are affected so they can raise the limit, and re-run the workflows once they say it is lifted.",
+      "rationale": null,
+      "source_lines": "L881",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "fix-the-root-cause-not-the-symptom"
+      ],
+      "manifestos": []
+    },
+    {
+      "id": "dependabot-bump-handling",
+      "level": "MUST",
+      "section": "S20",
+      "statement": "For a Dependabot bump with red CI, update the bump against current `main` if the dependency is still wanted; otherwise salvage any accompanying lockfile / workflow pin that is still correct.",
+      "rationale": null,
+      "source_lines": "L882",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "push-fixes-to-the-existing-pr-branch",
+      "level": "MUST",
+      "section": "S20",
+      "statement": "Push the fix to the existing PR branch when the PR is still the right vehicle; open a new PR only when the old one is the wrong vehicle (wrong base, superseded product direction, or the original author path is abandoned).",
+      "rationale": null,
+      "source_lines": "L883",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "classify-the-fleet-before-a-campaign",
+      "level": "MUST",
+      "section": "S20",
+      "statement": "Before declaring a fleet-wide campaign, classify the whole fleet first and count the failure classes; fix the root cause once and do not hand-patch 200 PRs.",
+      "rationale": "Red at this scale is nearly always a handful of root causes (one shared workflow, one unpinned action, one missing secret, one billing setting) wearing hundreds of faces.",
+      "source_lines": "L885",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "fix-the-root-cause-not-the-symptom"
+      ],
+      "manifestos": []
+    },
+    {
+      "id": "a-pr-is-never-merely-closed",
+      "level": "MUST_NOT",
+      "section": "S20",
+      "statement": "Merely close a PR. Before a PR is closed, marked stale, superseded, or abandoned, extract everything of value from it and land that value somewhere durable.",
+      "rationale": "Closing a PR without a recorded salvage pass is a defect, and is treated the same as deleting work.",
+      "source_lines": "L889",
+      "enforceable": true,
+      "verification": "assert no closed-unmerged PR lacks a salvage-record comment",
+      "themes": [
+        "salvage-before-closure"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "stale-prs-are-the-highest-value-salvage",
+      "level": "MUST",
+      "section": "S20",
+      "statement": "Cherry-pick aggressively from old, outmoded, redundant, conflict-ridden and half-finished PRs; treat them as the highest-value salvage targets, not the lowest.",
+      "rationale": "The reason a PR is stale is almost never that its ideas were wrong; it is that the surrounding code moved.",
+      "source_lines": "L891",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "salvage-before-closure"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "stale-classification-criteria",
+      "level": "MUST",
+      "section": "S20",
+      "statement": "Treat a PR as stale (comment instead of driving to merge) only when the stated criteria hold, or when a human has said it is obsolete: clearly superseded, or months stale with no unique product direction left, or a duplicate fleet campaign whose unique hunks have already been harvested.",
+      "rationale": null,
+      "source_lines": "L893–897",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "comment-why-not-greened-and-link-salvage",
+      "level": "MUST",
+      "section": "S20",
+      "statement": "Comment on the original PR explaining why it is not being driven to green, and link every salvage commit / salvage PR.",
+      "rationale": null,
+      "source_lines": "L901",
+      "enforceable": true,
+      "verification": "assert a comment exists containing salvage links",
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "never-close-unless-a-human-asked",
+      "level": "MUST_NOT",
+      "section": "S20",
+      "statement": "Close a PR unless a human asked to close it; leave the original open.",
+      "rationale": null,
+      "source_lines": "L901, L930, L970",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "salvage-before-closure"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "cherry-pick-is-mandatory",
+      "level": "MUST",
+      "section": "S20",
+      "statement": "Cherry-pick is mandatory: read the full PR diff and at least 5 commits of history on both the PR branch and `main`, and try very hard to keep the good parts.",
+      "rationale": null,
+      "source_lines": "L902",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "salvage-before-closure"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "harvest-the-minimum-categories",
+      "level": "MUST",
+      "section": "S20",
+      "statement": "Harvest at minimum: tests, contracts, JSON Schema, FORCE RLS, fail-closed parsers and typed-error paths; hardening (CSP, query allowlists, digest-only storage, no secrets in fixtures); unique docs, Linear/ticket links and workflow pins `main` still lacks; dependency bumps still ahead of `main`; documentation, comments, ADRs and commit messages that explain *why*; utility and helper functions; CI, lint, formatting and toolchain changes; config, manifests and schema migrations (k8s YAML, Cloudflare config, `zed-pkg` descriptors, `declarative-migrations` files); performance work and benchmark harnesses; and type and interface refinements (narrower types, exhaustive matches, newtypes, schema tightening) and typed-error introductions.",
+      "rationale": "Small pure functions are the single most portable unit of salvage… [type refinements] land cleanly far more often than implementations do.",
+      "source_lines": "L902–915",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "salvage-before-closure"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "regenerate-rather-than-copy-stale-artifacts",
+      "level": "MUST",
+      "section": "S20",
+      "statement": "For generated artifacts, re-run generation rather than copying stale generated files blindly, keeping only what matches current generators.",
+      "rationale": null,
+      "source_lines": "L906",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "verify-bug-fixes-against-current-head",
+      "level": "MUST",
+      "section": "S20",
+      "statement": "Salvage bug fixes only for bugs still live on `main`/`dev` today — verify against current HEAD before assuming they were fixed elsewhere.",
+      "rationale": null,
+      "source_lines": "L907",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "verify-the-thing-not-a-proxy-for-it"
+      ],
+      "manifestos": [
+        "evidence-over-assertion"
+      ]
+    },
+    {
+      "id": "record-negative-knowledge",
+      "level": "MUST",
+      "section": "S20",
+      "statement": "Record negative knowledge — an approach that was tried and abandoned — in the PR comment and in `docs/` so it is not re-attempted.",
+      "rationale": null,
+      "source_lines": "L916, L948–949",
+      "enforceable": true,
+      "verification": "assert an ADR/doc file is referenced in the salvage record when the verdict cites an abandoned approach",
+      "themes": [
+        "salvage-before-closure"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "land-orphan-tests-as-skipped",
+      "level": "MUST",
+      "section": "S20",
+      "statement": "Land a test written for a feature that never landed, marking it `#[ignore]` / `it.skip` / `@Skip` with a comment pointing at the PR if the code it exercises does not exist yet.",
+      "rationale": "a test written for a feature that never landed still encodes a real invariant.",
+      "source_lines": "L917",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "salvage-before-closure"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "apply-salvage-by-cherry-pick-or-merge",
+      "level": "MUST",
+      "section": "S20",
+      "statement": "Apply salvage with `git cherry-pick` or a merge commit of a salvage branch.",
+      "rationale": null,
+      "source_lines": "L918, L986",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "no-rebase-stash-or-reset-in-salvage",
+      "level": "MUST_NOT",
+      "section": "S20",
+      "statement": "Rebase, stash, or reset during salvage, including to escape a conflict.",
+      "rationale": null,
+      "source_lines": "L918, L928, L986",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "merge-by-meaning-not-by-side"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "do-not-salvage-secret-or-ui-automation-hunks",
+      "level": "MUST_NOT",
+      "section": "S20",
+      "statement": "Salvage empty, secret-bearing, or provider-UI-automation hunks; say so in the comment.",
+      "rationale": null,
+      "source_lines": "L919",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "credentials-never-touch-the-repo-or-the-transcript"
+      ],
+      "manifestos": [
+        "secrets-have-one-home"
+      ]
+    },
+    {
+      "id": "per-repo-skim-for-duplicate-fleet-titles",
+      "level": "MUST",
+      "section": "S20",
+      "statement": "Skim each repo individually even for duplicate fleet titles (e.g. \"Freeze generated files…\" on 40 repos): one repo may have a real unique fix hiding under a copy-pasted title.",
+      "rationale": null,
+      "source_lines": "L920, L897",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "salvage-before-closure",
+        "fix-the-root-cause-not-the-symptom"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "read-the-whole-diff",
+      "level": "MUST",
+      "section": "S20",
+      "statement": "Read the whole diff, not the summary: `git fetch origin pull/<N>/head:pr-<N>` then `git diff $(git merge-base pr-<N> origin/main)..pr-<N>`, reading every hunk.",
+      "rationale": null,
+      "source_lines": "L924",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "verify-the-thing-not-a-proxy-for-it"
+      ],
+      "manifestos": [
+        "evidence-over-assertion"
+      ]
+    },
+    {
+      "id": "read-the-discussion",
+      "level": "MUST",
+      "section": "S20",
+      "statement": "Read the PR discussion; \"review comments frequently contain the good idea that the code itself never got right.\"",
+      "rationale": null,
+      "source_lines": "L925",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "verify-the-thing-not-a-proxy-for-it"
+      ],
+      "manifestos": [
+        "evidence-over-assertion"
+      ]
+    },
+    {
+      "id": "classify-each-hunk-against-today",
+      "level": "MUST",
+      "section": "S20",
+      "statement": "For each hunk decide *already landed*, *still needed*, *obsolete*, or *needs translation* — and treat \"needs translation\" as the common case, not an excuse to drop it; port the intent to the current code shape.",
+      "rationale": null,
+      "source_lines": "L926",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "verify-the-thing-not-a-proxy-for-it"
+      ],
+      "manifestos": [
+        "evidence-over-assertion"
+      ]
+    },
+    {
+      "id": "salvage-branch-naming-and-base",
+      "level": "MUST",
+      "section": "S20",
+      "statement": "Land salvage on a fresh branch off current `dev` (or `main` where the repo has no `dev`), named `salvage/pr-<N>-<slug>`.",
+      "rationale": null,
+      "source_lines": "L927, L968",
+      "enforceable": true,
+      "verification": "branch-name regex plus merge-base check against `dev`/`main`",
+      "themes": [
+        "salvage-before-closure"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "cherry-pick-dash-x-or-cite-the-source",
+      "level": "MUST",
+      "section": "S20",
+      "statement": "Use `git cherry-pick -x` where a commit applies cleanly so provenance is recorded; otherwise re-apply by hand with a commit message saying `Salvaged from #<N>: <what and why>`.",
+      "rationale": null,
+      "source_lines": "L927",
+      "enforceable": true,
+      "verification": "assert every commit on a `salvage/*` branch carries either a `(cherry picked from commit …)` trailer or the `Salvaged from #<N>:` prefix",
+      "themes": [
+        "salvage-before-closure"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "salvage-conflicts-need-five-commits-both-sides",
+      "level": "MUST",
+      "section": "S20",
+      "statement": "Resolve any salvage conflict semantically with at least five commits of history on both sides; never pick a side to make the conflict go away.",
+      "rationale": null,
+      "source_lines": "L928",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "merge-by-meaning-not-by-side"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "green-the-salvage-pr-before-touching-the-original",
+      "level": "MUST",
+      "section": "S20",
+      "statement": "Open the salvage PR and get it green before touching the original.",
+      "rationale": null,
+      "source_lines": "L929",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "salvage-before-closure"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "use-the-salvage-record-template",
+      "level": "MUST",
+      "section": "S20",
+      "statement": "Comment on the original PR with the required salvage-record template — Verdict (superseded / outmoded / redundant / budget-blocked / superseded-in-part), why it is not being greened as-is, the salvage PR and branch, a per-file list of what was salvaged and why, a \"Deliberately dropped\" list with reasons, and negative knowledge recorded to an ADR path.",
+      "rationale": null,
+      "source_lines": "L930, L933–952",
+      "enforceable": true,
+      "verification": "parse the comment for the template's required headings",
+      "themes": [
+        "salvage-before-closure"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "nothing-salvageable-must-be-defended",
+      "level": "MUST",
+      "section": "S20",
+      "statement": "If nothing at all is salvageable, say so explicitly in the comment and justify it hunk by hunk; \"'Nothing salvageable' is a claim that must be defended, not a default.\"",
+      "rationale": null,
+      "source_lines": "L931",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "salvage-before-closure"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "prefer-greening-in-place",
+      "level": "SHOULD",
+      "section": "S20",
+      "statement": "Prefer greening the original PR in place when the diff still applies to current `main`/`dev` with only mechanical fixes (lint, formatting, a moved import, a renamed symbol, a CI matrix entry, a dependency bump); when in doubt, try greening first.",
+      "rationale": "it preserves review history.",
+      "source_lines": "L956",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "unready-salvage-is-a-draft-pr-not-a-stash",
+      "level": "MUST",
+      "section": "S20",
+      "statement": "Treat a salvage PR that is not yet ready as a draft PR on GitHub, not a stash and not a local-only branch.",
+      "rationale": null,
+      "source_lines": "L958–959",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "remote-or-it-did-not-happen"
+      ],
+      "manifestos": [
+        "work-does-not-sit-locally"
+      ]
+    },
+    {
+      "id": "assume-there-is-something-worth-keeping",
+      "level": "MUST",
+      "section": "S20",
+      "statement": "Assume an otherwise-undesirable PR still contains something useful — a test, a type, a helper, a workflow pin, a contract, a comment, or negative knowledge. \"That is the common case, not the exception.\"",
+      "rationale": null,
+      "source_lines": "L961–963",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "salvage-before-closure"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "done-means-a-github-salvage-pr-exists",
+      "level": "MUST",
+      "section": "S20",
+      "statement": "Open a new GitHub pull request from the salvage branch; a local cherry-pick, a comment, or a \"we'll get to it\" note is not done.",
+      "rationale": null,
+      "source_lines": "L969",
+      "enforceable": true,
+      "verification": "assert a PR exists for every `salvage/*` branch",
+      "themes": [
+        "remote-or-it-did-not-happen",
+        "salvage-before-closure"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides",
+        "work-does-not-sit-locally"
+      ]
+    },
+    {
+      "id": "do-not-wait-to-open-the-salvage-pr",
+      "level": "MUST_NOT",
+      "section": "S20",
+      "statement": "Wait to be asked whether to open the salvage PR.",
+      "rationale": null,
+      "source_lines": "L972",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "land-without-asking"
+      ],
+      "manifestos": [
+        "work-does-not-sit-locally"
+      ]
+    },
+    {
+      "id": "never-close-a-red-pr-unread",
+      "level": "MUST_NOT",
+      "section": "S20",
+      "statement": "Close or ignore a red PR because CI is red without reading the diff.",
+      "rationale": null,
+      "source_lines": "L976",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "verify-the-thing-not-a-proxy-for-it"
+      ],
+      "manifestos": [
+        "evidence-over-assertion"
+      ]
+    },
+    {
+      "id": "never-drop-unique-tests-or-hardening",
+      "level": "MUST_NOT",
+      "section": "S20",
+      "statement": "Drop a stale PR's unique tests or hardening because the rest of the PR is obsolete.",
+      "rationale": null,
+      "source_lines": "L977",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "salvage-before-closure"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "never-rebase-to-ease-a-cherry-pick",
+      "level": "MUST_NOT",
+      "section": "S20",
+      "statement": "Rebase the stale branch onto main \"to make cherry-pick easier.\"",
+      "rationale": null,
+      "source_lines": "L978",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "merge-by-meaning-not-by-side"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "no-force-push-no-skipped-hooks",
+      "level": "MUST_NOT",
+      "section": "S20",
+      "statement": "Force-push, or skip hooks, unless a human explicitly asked.",
+      "rationale": null,
+      "source_lines": "L979",
+      "enforceable": true,
+      "verification": "reject `--force`/`--force-with-lease` and `--no-verify` in agent-issued git commands",
+      "themes": [
+        "fail-closed-and-typed"
+      ],
+      "manifestos": [
+        "fail-closed"
+      ]
+    },
+    {
+      "id": "no-bare-stale-closure-message",
+      "level": "MUST_NOT",
+      "section": "S20",
+      "statement": "Close a PR with a bare \"stale\", \"superseded\", \"closing in favour of #X\", or a bot-style message; a link to a replacement PR is not a salvage pass unless the salvage record is present.",
+      "rationale": null,
+      "source_lines": "L980",
+      "enforceable": true,
+      "verification": "reject closing comments below a length/structure threshold or missing the template",
+      "themes": [
+        "salvage-before-closure"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "keep-the-head-branch-until-salvage-merges",
+      "level": "MUST_NOT",
+      "section": "S20",
+      "statement": "Delete the head branch of a salvaged PR until the salvage PR has merged.",
+      "rationale": null,
+      "source_lines": "L981",
+      "enforceable": true,
+      "verification": "assert the head ref still exists while the linked salvage PR is open",
+      "themes": [
+        "never-lose-work"
+      ],
+      "manifestos": []
+    },
+    {
+      "id": "age-and-redness-are-not-worthlessness",
+      "level": "MUST_NOT",
+      "section": "S20",
+      "statement": "Treat merge conflicts, a red build, or a long-dead branch as evidence that the content is worthless; \"those are properties of the branch's age, not of its ideas.\"",
+      "rationale": null,
+      "source_lines": "L982",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "salvage-before-closure"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "no-batch-closing-prs",
+      "level": "MUST_NOT",
+      "section": "S20",
+      "statement": "Batch-close PRs; each one gets its own read and its own comment.",
+      "rationale": null,
+      "source_lines": "L983",
+      "enforceable": true,
+      "verification": "flag N closures with identical comment bodies in a short window",
+      "themes": [
+        "salvage-before-closure",
+        "fix-the-root-cause-not-the-symptom"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "do-not-merge-is-not-throw-away",
+      "level": "MUST_NOT",
+      "section": "S20",
+      "statement": "Treat \"we should not merge this PR\" as \"throw the branch away\"; cherry-pick first, open the salvage PR, then decide what to do with the original.",
+      "rationale": null,
+      "source_lines": "L984",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "salvage-before-closure"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "salvaged-work-must-leave-the-laptop",
+      "level": "MUST_NOT",
+      "section": "S20",
+      "statement": "Leave salvaged work only on a laptop or only in a comment; \"if it is not a GitHub PR, it can still disappear.\"",
+      "rationale": null,
+      "source_lines": "L985",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "remote-or-it-did-not-happen"
+      ],
+      "manifestos": [
+        "work-does-not-sit-locally"
+      ]
+    },
+    {
+      "id": "never-salvage-agents-md-itself",
+      "level": "MUST_NOT",
+      "section": "S20",
+      "statement": "Copy `AGENTS.md` into another repo as \"salvage\"; salvage the *rules*, not the file — the pointer block in `lib/agents-pointer.md` is what other repos carry.",
+      "rationale": "it is machine-specific, and its history carries credentials that must not be republished.",
+      "source_lines": "L987",
+      "enforceable": true,
+      "verification": "content-match scan across repos",
+      "themes": [
+        "one-authority-per-fact"
+      ],
+      "manifestos": [
+        "peer-authorities"
+      ]
+    },
+    {
+      "id": "keep-the-linear-issue-open-until-salvage-merges",
+      "level": "MUST_NOT",
+      "section": "S20",
+      "statement": "Close the Linear issue that owns a salvaged PR until the salvage PR has merged.",
+      "rationale": null,
+      "source_lines": "L988",
+      "enforceable": true,
+      "verification": "join issue state against the linked salvage PR's merge state",
+      "themes": [
+        "salvage-before-closure"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "rust-by-default-for-systems-and-automation",
+      "level": "MUST",
+      "section": "S21",
+      "statement": "Use Rust by default for systems-facing code and executable automation, including CLIs, build and release tooling, contract-parity and schema/ORM convergence checks, code-generation orchestration, security and secret-policy validation, fleet audits, and long-lived repository scripts.",
+      "rationale": "Prefer Rust's explicit types, exhaustive matching, memory safety, deterministic error handling, and single-binary deployment over Python for these responsibilities.",
+      "source_lines": "L992–997",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "fail-closed-and-typed"
+      ],
+      "manifestos": [
+        "fail-closed"
+      ]
+    },
+    {
+      "id": "capture-the-python-contract-before-replacing",
+      "level": "MUST",
+      "section": "S21",
+      "statement": "Before replacing an existing Python tool, run its current positive and negative tests and capture its observable CLI, output, and exit-code contract.",
+      "rationale": null,
+      "source_lines": "L999–1001",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "fail-closed-and-typed"
+      ],
+      "manifestos": [
+        "fail-closed"
+      ]
+    },
+    {
+      "id": "rust-replacement-parity-requirements",
+      "level": "MUST",
+      "section": "S21",
+      "statement": "The Rust replacement must preserve intended behavior, add fixture or golden parity tests, reject malformed input fail-closed, and eliminate any false-positive validation paths found during migration.",
+      "rationale": null,
+      "source_lines": "L1000–1003",
+      "enforceable": true,
+      "verification": "assert golden/fixture parity tests exist and cover the captured exit-code contract",
+      "themes": [
+        "fail-closed-and-typed"
+      ],
+      "manifestos": [
+        "fail-closed"
+      ]
+    },
+    {
+      "id": "deferred-migration-must-be-tracked",
+      "level": "MUST",
+      "section": "S21",
+      "statement": "A passing Python implementation may remain temporarily when migration risk exceeds the immediate benefit, but still open a draft PR or tracked Linear item recording the assessment, the reason for deferral, and the intended Rust owner and migration boundary.",
+      "rationale": null,
+      "source_lines": "L1005–1008",
+      "enforceable": true,
+      "verification": "assert every retained Python systems script has a linked tracking item",
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "small-is-not-a-reason-to-stay-dynamic",
+      "level": "MUST_NOT",
+      "section": "S21",
+      "statement": "Treat \"the script is small\" as a reason to keep systems or policy logic dynamically typed.",
+      "rationale": null,
+      "source_lines": "L1008–1009",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "python-only-where-its-ecosystem-is-required",
+      "level": "MAY",
+      "section": "S21",
+      "statement": "Use Python where its ecosystem is materially required — data science, notebooks, model experimentation, or a vendor toolchain with no practical Rust alternative; it is not the default for systems programming, repository policy enforcement, or durable operational scripting.",
+      "rationale": null,
+      "source_lines": "L1011–1014",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "uncommitted-changes-are-work",
+      "level": "MUST_NOT",
+      "section": "S22",
+      "statement": "Discard local, uncommitted changes in a working tree; they are never disposable, never \"in the way\", and never yours to throw out.",
+      "rationale": "Losing them is treated exactly like deleting a pushed branch: a defect that must be reported, not a cleanup step.\" On 2026-09-04 uncommitted edits to this very file plus two new docs were wiped by a pull that overwrote the working tree, surviving only because of the `rescue/wip-main-citadel-20260904` snapshot.",
+      "source_lines": "L1018–1026",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "never-lose-work"
+      ],
+      "manifestos": []
+    },
+    {
+      "id": "look-before-you-touch",
+      "level": "MUST",
+      "section": "S22",
+      "statement": "Before any `git pull`, `git merge`, `git checkout`, `git switch`, `git reset`, `git clean`, `git rebase`, or `git worktree` command that can rewrite the working tree, run `git status --porcelain` and `git stash list`; if the tree is not clean, stop and preserve the changes first.",
+      "rationale": null,
+      "source_lines": "L1030–1033",
+      "enforceable": true,
+      "verification": "require the status probe to precede any tree-rewriting command in agent command logs",
+      "themes": [
+        "never-lose-work",
+        "invisible-state-is-the-enemy"
+      ],
+      "manifestos": []
+    },
+    {
+      "id": "preserve-then-sync",
+      "level": "MUST",
+      "section": "S22",
+      "statement": "Commit the uncommitted changes to a scratch/WIP branch (`wip/<what>` or `rescue/<what>`) using explicit paths, never `-A`, and push it; only then pull or merge.",
+      "rationale": null,
+      "source_lines": "L1034–1037",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "never-lose-work"
+      ],
+      "manifestos": []
+    },
+    {
+      "id": "a-stash-is-not-preservation",
+      "level": "MUST_NOT",
+      "section": "S22",
+      "statement": "Treat a stash as preservation; \"it is invisible and unpushed.\"",
+      "rationale": null,
+      "source_lines": "L1036–1037",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "invisible-state-is-the-enemy"
+      ],
+      "manifestos": []
+    },
+    {
+      "id": "never-force-a-tree-rewrite",
+      "level": "MUST_NOT",
+      "section": "S22",
+      "statement": "Use `git pull --force`, `git fetch --force` into the checked-out branch, `git reset --hard`, `git checkout -- <path>` / `git restore <path>` on a path with local edits, `git clean -f`, `git stash drop`/`clear`, `git checkout -f` / `git switch -f`, or `git worktree remove --force` unless a human names the command **and** the path in the same message.",
+      "rationale": null,
+      "source_lines": "L1038–1042",
+      "enforceable": true,
+      "verification": "a command-denylist gate that requires a matching human-authored authorization naming both the command and the path",
+      "themes": [
+        "never-lose-work"
+      ],
+      "manifestos": []
+    },
+    {
+      "id": "discard-is-never-implied-by-sync",
+      "level": "MUST_NOT",
+      "section": "S22",
+      "statement": "Treat \"discard local changes\" as an implied step of \"sync\", \"update\", \"get latest\", \"resolve the conflict\", or \"make CI green\".",
+      "rationale": null,
+      "source_lines": "L1042–1044",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "never-lose-work"
+      ],
+      "manifestos": []
+    },
+    {
+      "id": "a-refused-dirty-pull-is-the-correct-outcome",
+      "level": "MUST_NOT",
+      "section": "S22",
+      "statement": "\"Fix\" a `git pull` that refuses because local changes would be overwritten by discarding; that refusal is git protecting the work — fix it by committing the work to a branch and then merging.",
+      "rationale": null,
+      "source_lines": "L1045–1048",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "never-lose-work"
+      ],
+      "manifestos": []
+    },
+    {
+      "id": "fleet-scripts-skip-and-report-dirty-checkouts",
+      "level": "MUST",
+      "section": "S22",
+      "statement": "Have any fleet script that pulls across many checkouts skip any checkout with a dirty tree and report it, never overwrite it.",
+      "rationale": "the rule \"applies to every repo under `~/codes`, every org, every machine, and every agent (Claude Code, Cursor, Codex, Cowork, CI and rollout scripts).",
+      "source_lines": "L1049–1052",
+      "enforceable": true,
+      "verification": "assert the script's pull path is guarded by a porcelain-status check",
+      "themes": [
+        "never-lose-work"
+      ],
+      "manifestos": []
+    },
+    {
+      "id": "other-sessions-work-counts-too",
+      "level": "MUST",
+      "section": "S22",
+      "statement": "Preserve edits you did not make; if you cannot tell whose they are, preserve them on a `rescue/<machine>-<date>` branch, push it, and say so in the turn summary.",
+      "rationale": "Several agents share these checkouts.",
+      "source_lines": "L1053–1056",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "never-lose-work"
+      ],
+      "manifestos": []
+    },
+    {
+      "id": "recover-immediately-if-work-was-lost",
+      "level": "MUST",
+      "section": "S22",
+      "statement": "If loss already happened, recover immediately before anything else using `git fsck --lost-found`, `git reflog`, `git stash list`, editor/IDE local history, and any `rescue/*` branches on the remote; land what you recover on a pushed branch and record what was lost and how in the turn summary.",
+      "rationale": null,
+      "source_lines": "L1057–1060",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "never-lose-work"
+      ],
+      "manifestos": []
+    },
+    {
+      "id": "worktrees-live-in-tmp-worktrees",
+      "level": "MUST",
+      "section": "S23",
+      "statement": "Put an authorized worktree inside the repository it belongs to, under the **primary checkout's** `tmp/worktrees/` (spelled `worktrees`), created from that primary checkout.",
+      "rationale": null,
+      "source_lines": "L1062–1074",
+      "enforceable": true,
+      "verification": "assert every path in `git worktree list --porcelain` is under `<repo>/tmp/worktrees/`",
+      "themes": [
+        "invisible-state-is-the-enemy"
+      ],
+      "manifestos": []
+    },
+    {
+      "id": "verify-the-ignore-before-creating-a-worktree",
+      "level": "MUST",
+      "section": "S23",
+      "statement": "Create the worktree only after the `tmp/`/`temp/` ignore rules have landed, verifying with `git check-ignore -q tmp/worktrees/.location-probe`.",
+      "rationale": null,
+      "source_lines": "L1067–1073",
+      "enforceable": true,
+      "verification": "the check-ignore probe itself",
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "never-nest-a-worktree",
+      "level": "MUST_NOT",
+      "section": "S23",
+      "statement": "Nest a new worktree inside an existing linked worktree.",
+      "rationale": null,
+      "source_lines": "L1067–1068",
+      "enforceable": true,
+      "verification": "path-containment check across the worktree list",
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "never-place-a-worktree-outside-the-repo",
+      "level": "MUST_NOT",
+      "section": "S23",
+      "statement": "Put a worktree next to the repo, in `~/codes/` directly, in `/tmp`, or in any other sibling or parent directory.",
+      "rationale": "A worktree that is a direct child of `~/codes/` looks like a repo to every fleet script and every agent, gets scanned, gets 'synced', and gets its unpushed work stranded when someone tidies `~/codes/`.",
+      "source_lines": "L1076–1081",
+      "enforceable": true,
+      "verification": "same path assertion",
+      "themes": [
+        "invisible-state-is-the-enemy"
+      ],
+      "manifestos": []
+    },
+    {
+      "id": "inspect-worktree-list-before-cleanup",
+      "level": "MUST",
+      "section": "S23",
+      "statement": "For cleanup explicitly authorized by the human, inspect `git worktree list --porcelain` first; \"a scratch-looking directory can be an ordinary clone or a submodule; neither is a linked worktree to remove.\"",
+      "rationale": null,
+      "source_lines": "L1083–1086",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "invisible-state-is-the-enemy"
+      ],
+      "manifestos": []
+    },
+    {
+      "id": "confirm-ownership-and-coordinate",
+      "level": "MUST",
+      "section": "S23",
+      "statement": "Confirm the owning repository and remote and coordinate with any active agent before touching its checkout; note that `origin` may be the test organization while a separate remote owns production `main`.",
+      "rationale": null,
+      "source_lines": "L1086–1088",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "pre-removal-inspection",
+      "level": "MUST",
+      "section": "S23",
+      "statement": "Before removing each worktree, inspect tracked edits, staged edits, untracked files, ignored files, locks, and at least five commits of history on both sides (all available history for a younger branch), and preserve unique files including ignored source.",
+      "rationale": null,
+      "source_lines": "L1092–1094",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "never-lose-work"
+      ],
+      "manifestos": []
+    },
+    {
+      "id": "worktree-work-lands-through-a-pr",
+      "level": "MUST",
+      "section": "S23",
+      "statement": "Commit reviewed changes with explicit paths, push the branch, resolve conflicts by preserving intent, run relevant checks, and land through a PR into the correct remote `main`; \"a pushed but unmerged branch is not cleanup completion.\"",
+      "rationale": null,
+      "source_lines": "L1095–1098",
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "remote-or-it-did-not-happen"
+      ],
+      "manifestos": [
+        "work-does-not-sit-locally"
+      ]
+    },
+    {
+      "id": "prove-ancestry-before-removal",
+      "level": "MUST",
+      "section": "S23",
+      "statement": "Fetch and prove the worktree tip is an ancestor of that remote `main`; for a squash merge, also verify the merged PR's exact head and compare the complete trees or account for every remaining hunk. \"A matching PR title is insufficient.\"",
+      "rationale": null,
+      "source_lines": "L1099–1103",
+      "enforceable": true,
+      "verification": "`git merge-base --is-ancestor <tip> origin/main`, plus a tree comparison for squash merges",
+      "themes": [
+        "verify-the-thing-not-a-proxy-for-it"
+      ],
+      "manifestos": [
+        "evidence-over-assertion"
+      ]
+    },
+    {
+      "id": "retain-the-source-branch",
+      "level": "MUST",
+      "section": "S23",
+      "statement": "Retain the source branch; removing the checkout does not require deleting its history.",
+      "rationale": null,
+      "source_lines": "L1102–1103",
+      "enforceable": true,
+      "verification": "assert the branch ref still exists after removal",
+      "themes": [
+        "never-lose-work"
+      ],
+      "manifestos": []
+    },
+    {
+      "id": "recheck-then-remove-without-force",
+      "level": "MUST",
+      "section": "S23",
+      "statement": "Recheck the worktree's HEAD and clean status immediately before `git worktree remove <path>`, run it without `--force`, and verify its registration is gone.",
+      "rationale": null,
+      "source_lines": "L1104–1106",
+      "enforceable": true,
+      "verification": "reject `worktree remove --force`; assert the registration disappears",
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "never-filesystem-delete-a-worktree",
+      "level": "MUST_NOT",
+      "section": "S23",
+      "statement": "Use a filesystem deletion command to remove a worktree.",
+      "rationale": null,
+      "source_lines": "L1106",
+      "enforceable": true,
+      "verification": "reject `rm -rf` targeting a registered worktree path",
+      "themes": [
+        "never-lose-work"
+      ],
+      "manifestos": []
+    },
+    {
+      "id": "repair-before-assuming-disposable",
+      "level": "MUST",
+      "section": "S23",
+      "statement": "For relocated or interrupted worktrees, inspect and use `git worktree repair` before assuming that Git's error means the files are disposable.",
+      "rationale": null,
+      "source_lines": "L1108–1110",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "preserve-lock-evidence-before-repair",
+      "level": "MUST",
+      "section": "S23",
+      "statement": "Preserve stale lock/index evidence and verify no process owns it before repair.",
+      "rationale": null,
+      "source_lines": "L1110–1111",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "never-blanket-prune-worktrees",
+      "level": "MUST_NOT",
+      "section": "S23",
+      "statement": "Blanket-prune worktree registrations; \"a missing path may belong to a moved checkout.\"",
+      "rationale": null,
+      "source_lines": "L1111–1112",
+      "enforceable": true,
+      "verification": "reject bare `git worktree prune` in agent commands",
+      "themes": [
+        "never-lose-work"
+      ],
+      "manifestos": []
+    },
+    {
+      "id": "relocate-with-git-not-by-hand",
+      "level": "MUST",
+      "section": "S23",
+      "statement": "If a worktree remains needed, keep its work intact and relocate it with Git to the authorized primary checkout's `tmp/worktrees/`.",
+      "rationale": null,
+      "source_lines": "L1112–1113",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "every-repo-ignores-tmp-and-temp",
+      "level": "MUST",
+      "section": "S23",
+      "statement": "Every repository's `.gitignore` must ignore `tmp/` and `temp/` at any depth, using the trailing-slash form, not bare `tmp`.",
+      "rationale": "so a file legitimately named `tmp` is unaffected\"; and \"the ignore rule is what makes `git add` with explicit paths safe in a checkout that also holds scratch work.",
+      "source_lines": "L1115–1122",
+      "enforceable": true,
+      "verification": "assert both exact lines are present in each repo's `.gitignore`",
+      "themes": [
+        "invisible-state-is-the-enemy"
+      ],
+      "manifestos": []
+    },
+    {
+      "id": "add-missing-ignore-lines-when-you-touch-a-repo",
+      "level": "MUST",
+      "section": "S23",
+      "statement": "Add both ignore lines when you touch a repo that lacks either one.",
+      "rationale": null,
+      "source_lines": "L1124–1125",
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "tmp-is-the-only-sanctioned-scratch-location",
+      "level": "MUST_NOT",
+      "section": "S23",
+      "statement": "Put build outputs, scratch files, downloads, or worktrees anywhere other than `tmp/`.",
+      "rationale": null,
+      "source_lines": "L1124–1127",
+      "enforceable": true,
+      "verification": "assert no untracked build/scratch directories outside `tmp/`",
+      "themes": [
+        "invisible-state-is-the-enemy"
+      ],
+      "manifestos": []
+    },
+    {
+      "id": "agents-md-is-capitalized",
+      "level": "MUST",
+      "section": "S24",
+      "statement": "Name the agent-instruction file `AGENTS.md` (capitalized) everywhere — not `agents.md`.",
+      "rationale": null,
+      "source_lines": null,
+      "enforceable": true,
+      "verification": "case-sensitive filename check",
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "commit-into-a-clean-tree-before-pulling",
+      "level": "MUST",
+      "section": "S24",
+      "statement": "Commit your work first so the tree is clean, because pull/merge should go only into a clean tree.",
+      "rationale": "`git pull` / `git merge` aborts when an incoming change touches a file you have edited, and even when it doesn't it buries the merge in your uncommitted work.",
+      "source_lines": null,
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "remote-or-it-did-not-happen"
+      ],
+      "manifestos": [
+        "work-does-not-sit-locally"
+      ]
+    },
+    {
+      "id": "scratch-branch-when-you-cannot-commit-here",
+      "level": "MUST",
+      "section": "S24",
+      "statement": "If you cannot commit to this branch yet, commit to a scratch branch and push it rather than reaching for `git stash`.",
+      "rationale": null,
+      "source_lines": null,
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "fetch-all-prune-is-always-safe",
+      "level": "MAY",
+      "section": "S24",
+      "statement": "Run `git fetch --all --prune` at any time; \"it only updates tracking refs.\"",
+      "rationale": null,
+      "source_lines": null,
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "remote-or-it-did-not-happen"
+      ],
+      "manifestos": [
+        "work-does-not-sit-locally"
+      ]
+    },
+    {
+      "id": "never-rebase-to-sync",
+      "level": "MUST_NOT",
+      "section": "S24",
+      "statement": "Use `git rebase` to sync; integrate with `git merge` / `git pull`.",
+      "rationale": "it rewrites history and breaks shared branches.",
+      "source_lines": null,
+      "enforceable": true,
+      "verification": "assert the integration commit is a merge, not a replay",
+      "themes": [
+        "merge-by-meaning-not-by-side"
+      ],
+      "manifestos": [
+        "merge-do-not-pick-sides"
+      ]
+    },
+    {
+      "id": "prefer-the-primary-checkout-on-main",
+      "level": "SHOULD",
+      "section": "S24",
+      "statement": "Strongly prefer the existing primary checkout on `main` for normal implementation, integration, final commits, and pushes.",
+      "rationale": null,
+      "source_lines": null,
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "dev-is-not-the-final-delivery-branch",
+      "level": "MUST",
+      "section": "S24",
+      "statement": "Merge validated integration work from `dev` into `main` when it is ready for production; do not treat `dev` as the final delivery branch.",
+      "rationale": null,
+      "source_lines": null,
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "coordinate-ownership-over-worktree-isolation",
+      "level": "MUST",
+      "section": "S24",
+      "statement": "Have concurrent agents coordinate repository, branch, and file ownership through the available agent communication channel, inspect live state before each write, keep edits scoped, and hand off cleanly; prefer coordination over routine worktree isolation.",
+      "rationale": null,
+      "source_lines": null,
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "pause-overlapping-edits-without-safe-ownership",
+      "level": "MUST",
+      "section": "S24",
+      "statement": "Preserve unrelated in-progress changes; if agents cannot establish safe ownership for overlapping files, pause the overlapping edit and coordinate before continuing.",
+      "rationale": null,
+      "source_lines": null,
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "never-lose-work"
+      ],
+      "manifestos": []
+    },
+    {
+      "id": "stash-is-permitted-only-short-lived-same-session",
+      "level": "MAY",
+      "section": "S24",
+      "statement": "Use a stash only where it is short-lived and same-session — created and reapplied within a few minutes and never outliving your attention: pulling into a dirty tree when you are about to reapply immediately, flipping branches briefly to check something, or `git stash --keep-index` to test only what you have staged.",
+      "rationale": "It is not forbidden — it is a fine tool for what it was built for.",
+      "source_lines": null,
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "invisible-state-is-the-enemy"
+      ],
+      "manifestos": []
+    },
+    {
+      "id": "never-use-a-stash-as-storage",
+      "level": "MUST_NOT",
+      "section": "S24",
+      "statement": "Use a stash as the *storage*: \"preserve this for later\", parking work at the end of a session, or holding anything not also on a remote.",
+      "rationale": "A single `git stash drop`, `git stash clear`, or re-clone destroys it, and unlike an unpushed commit there is usually no reflog left to recover from.\" One repo here has 34 stashes.",
+      "source_lines": null,
+      "enforceable": true,
+      "verification": "flag stash entries older than the session",
+      "themes": [
+        "invisible-state-is-the-enemy"
+      ],
+      "manifestos": []
+    },
+    {
+      "id": "read-a-rescued-stash-before-pushing-it",
+      "level": "MUST",
+      "section": "S24",
+      "statement": "Before pushing a `rescue/<id>` branch made from someone else's stash, read the stash message and diff; unfinished work may not compile and may carry secrets, \"so publishing it is the owner's call, not yours.\"",
+      "rationale": null,
+      "source_lines": null,
+      "enforceable": false,
+      "verification": null,
+      "themes": [],
+      "manifestos": []
+    },
+    {
+      "id": "never-trust-a-stash-message",
+      "level": "MUST_NOT",
+      "section": "S24",
+      "statement": "Trust a stash message that claims the work is superseded — check.",
+      "rationale": "One here was labelled 'superseded by origin/main'; 29 of its 42 files were on no remote at all.",
+      "source_lines": null,
+      "enforceable": false,
+      "verification": null,
+      "themes": [
+        "invisible-state-is-the-enemy",
+        "verify-the-thing-not-a-proxy-for-it"
+      ],
+      "manifestos": [
+        "evidence-over-assertion"
+      ]
+    }
+  ]
+}

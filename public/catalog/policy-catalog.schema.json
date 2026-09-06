@@ -1,0 +1,267 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ores-manifestos.github.io/catalog/policy-catalog.schema.json",
+  "title": "ORES policy catalog",
+  "description": "Validation for policy-catalog.json. The catalog is generated from the workspace constitution, so this schema exists to make a bad regeneration fail loudly rather than publish quietly.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "catalogVersion",
+    "generatedOn",
+    "about",
+    "sources",
+    "counts",
+    "manifestos",
+    "sections",
+    "themes",
+    "policies"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "catalogVersion": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "generatedOn": {
+      "type": "string",
+      "format": "date"
+    },
+    "about": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "repo",
+          "path",
+          "sha256",
+          "lines"
+        ],
+        "properties": {
+          "repo": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "lines": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      }
+    },
+    "counts": {
+      "type": "object"
+    },
+    "manifestos": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "number",
+          "slug",
+          "title",
+          "url"
+        ],
+        "properties": {
+          "number": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "slug": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]*$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "number",
+          "title",
+          "source_lines"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "number": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "source_lines": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "themes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "statement",
+          "manifesto",
+          "policies"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]*$"
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 1
+          },
+          "manifesto": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "policies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "policies": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "level",
+          "section",
+          "statement",
+          "rationale",
+          "source_lines",
+          "enforceable",
+          "verification",
+          "themes",
+          "manifestos"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]*$"
+          },
+          "level": {
+            "enum": [
+              "MUST",
+              "MUST_NOT",
+              "SHOULD",
+              "SHOULD_NOT",
+              "MAY"
+            ]
+          },
+          "section": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 1
+          },
+          "rationale": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "source_lines": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "enforceable": {
+            "type": "boolean"
+          },
+          "verification": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "themes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "manifestos": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "enforceable": {
+                  "const": true
+                }
+              },
+              "required": [
+                "enforceable"
+              ]
+            },
+            "then": {
+              "properties": {
+                "verification": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

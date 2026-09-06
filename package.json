@@ -1,16 +1,19 @@
 {
   "name": "ores-manifestos-site",
-  "description": "The ORES Manifestos — the engineering principles this workspace is actually built on. ores-manifestos.github.io",
+  "description": "The ORES Manifestos \u2014 the engineering principles this workspace is actually built on. ores-manifestos.github.io",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "license": "MIT",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check": "astro check"
+    "check": "node scripts/validate-catalog.mjs && astro check",
+    "check:catalog": "node scripts/validate-catalog.mjs"
   },
   "dependencies": {
     "astro": "^5.6.0"
