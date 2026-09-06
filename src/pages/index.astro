@@ -1,0 +1,70 @@
+---
+import Base from '../layouts/Base.astro';
+
+const modules = import.meta.glob('./manifestos/*.md', { eager: true });
+const manifestos = Object.values(modules)
+  .map((m: any) => m.frontmatter)
+  .sort((a: any, b: any) => a.number - b.number);
+---
+
+<Base title="The ORES Manifestos">
+  <section class="hero">
+    <div class="inner">
+      <h1>Principles we can be held to.</h1>
+      <p class="lede">
+        Ten positions on how software gets built here — written down so they can be argued with,
+        cited in a review, and checked by a tool, instead of being inferred from a diff by whoever
+        happens to be reading it.
+      </p>
+      <div class="callout">
+        Most of these exist because we got the opposite wrong first. They are stated as rules
+        because a principle you have to re-derive under deadline pressure is not a principle.
+      </div>
+    </div>
+  </section>
+
+  <section id="manifestos">
+    <div class="inner">
+      <h2>The manifestos</h2>
+      <p class="section-note">Each one is short, and each one says what it costs.</p>
+      <div class="card-grid">
+        {manifestos.map((m: any) => (
+          <a class="card" href={`/manifestos/${m.slug}`}>
+            <span class="num">{String(m.number).padStart(2, '0')}</span>
+            <h3>{m.title}</h3>
+            <p>{m.tagline}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="inner">
+      <h2>Why write these down</h2>
+      <div class="prose">
+        <p>
+          A workspace of this shape — many organizations, the same repository patterns repeated
+          across all of them, a lot of work done by automation — fails in a particular way. Not
+          through any single bad decision, but through a hundred locally reasonable ones that
+          nobody wrote down and nobody can therefore review.
+        </p>
+        <p>
+          An unstated convention is enforced by whoever remembers it. A stated one can be checked
+          by a program, cited in a pull request, disagreed with in the open, and changed on
+          purpose. That is the whole argument.
+        </p>
+        <p>
+          Several of these are deliberately expensive. Two independently authored contract sources
+          cost more than one. Gates that refuse to guess block builds that a laxer gate would have
+          let through. That is the trade being made, on purpose, with the reasons written down
+          where the next person can weigh them.
+        </p>
+        <p>
+          For the operational side of building and running the services themselves, see
+          <a href="https://22-factor-apps.github.io" rel="noopener">The Twenty-Two-Factor App</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
